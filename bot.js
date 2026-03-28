@@ -77,11 +77,33 @@ client.on('message_create', async msg => {
   const text = msg.body.toLowerCase().trim();
 
   // >>> NOVO: filtro pra só comandos
-  const comandoValido = /^(\/p|\/pd|\/b|\/z|\/t|\/l|\/a|\/resumo)/;
+  const comandoValido = /^(\/p|\/pd|\/b|\/z|\/t|\/l|\/a|\/resumo|\/?)/;
   if (!comandoValido.test(text)) return;
 
   const diaData = getDia();
 
+  // ===== AJUDA =====
+  if (text === '/?') {
+  let resposta = `COMANDOS DISPONÍVEIS:\n\n`;
+
+  resposta += `Planos = /p clinica / paciente / sistema / exame / (obs)\n`;
+  resposta += `Ex: /p buturi / amora / plamev / hemograma\n\n`;
+
+  resposta += `Pendência = /pd clinica / paciente / exame / (obs)\n`;
+  resposta += `Ex: /pd bruna souza / thor / swab\n\n`;
+
+  resposta += `Zoogene = /z paciente\n`;
+  resposta += `Tecsa = /t paciente\n`;
+  resposta += `Labpet = /l paciente\n\n`;
+
+  resposta += `Buscas = /b clínica\n`;
+  resposta += `Adm = /a texto\n\n`;
+
+  resposta += `/resumo\n→ Ver lista do dia`;
+
+  msg.reply(resposta);
+    }
+  
   // ===== PLANOS =====
   if (text.startsWith('/p ')) {
     const partes = text.slice(3).split('/');
