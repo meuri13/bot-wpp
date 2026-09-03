@@ -8,13 +8,12 @@ const {
   capitalizar,
   hoje,
   hojeBR,
+  converterParaISO,
   reagir
 } = require('./funcoes/util');
 
 const aplicarAtalhos = require('./funcoes/atalhos');
   
-const aplicarExames = require('./funcoes/exames');
-
 const {
   montarPendencia,
   criarPendencia
@@ -54,6 +53,11 @@ if (fs.existsSync('dados.json')) {
 
 function salvar() {
   fs.writeFileSync('dados.json', JSON.stringify(data, null, 2));
+}
+
+// ===== NOTAS PRIVADAS =====
+function salvarNota(texto) {
+  fs.appendFileSync('notas.txt', `- ${texto}\n`, 'utf-8');
 }
 
 // ===== DATA =====
@@ -118,8 +122,19 @@ client.on('qr', qr => {
 });
 
 // ===== READY =====
-client.on('ready', () => {
+client.on('ready', async () => {
   console.log('Bot conectado!');
+
+  try {
+    const meuNumero = client.info.wid._serialized;
+
+    await client.sendMessage(
+      meuNumero,
+      'Bot conectado no WhatsApp.'
+    );
+  } catch (error) {
+    console.error('Erro ao enviar mensagem de conexão:', error);
+  }
 });
 
 // ===== BOT =====
@@ -129,10 +144,20 @@ client.on('message_create', async msg => {
   const text = msg.body.toLowerCase().trim();
 
   // >>> NOVO: filtro pra só comandos
-  const comandoValido = /^(\/p|\/pd|\/b|\/z|\/t|\/l|\/a|\/resumo|\/\?|\/\p?|\/del|\/debug|\/bs|\/edit|\/status|\/limpar)/;
+  const comandoValido = /^(\/p|\/pd|\/b|\/z|\/t|\/l|\/a|\/r|\/\?|\/\p?|\/del|\/debug|\/bs|\/edit|\/status|\/limpar|\/n)/;
   if (!comandoValido.test(text)) return;
 
   const diaData = getDia();
+
+  // ===== REGISTRAR NOTA =====
+if (text.startsWith('/n ')) {
+  const nota = msg.body.slice(3).trim();
+
+  if (nota) {
+    salvarNota(capitalizar(nota));
+    await reagir(client, msg, '📝'); // Reage com ✅ para confirmar o recebimento
+  }
+}
 
   // ===== AJUDA =====
   if (text === '/?') {
@@ -241,7 +266,7 @@ if (text.startsWith('/limpar')) {
   }
 
   salvar();
-    await reagir(client, msg);
+    await reagir(client, msg, '🧹');
   }
 
   // ===== PENDENCIAS =====
@@ -314,7 +339,7 @@ if (text.startsWith('/b ')) {
 
   diaData.buscas.push(capitalizar(clinica));
   salvar();
-    await reagir(client, msg);
+    await reagir(client, msg, '🏍️');
 }
 
 // ===== CADASTROS =====
@@ -322,26 +347,26 @@ if (text.startsWith('/b ')) {
 if (text.startsWith('/z ')) {
   adicionarGuia(diaData.zoogene, text.slice(3));
   salvar();
-    await reagir(client, msg);
+    await reagir(client, msg, '📝');
 }
 
 if (text.startsWith('/t ')) {
   adicionarGuia(diaData.tecsa, text.slice(3));
   salvar();
-  await reagir(client, msg);
+  await reagir(client, msg, '📝');
 }
 
 if (text.startsWith('/l ')) {
   adicionarGuia(diaData.labpet, text.slice(3));
   salvar();
-  await reagir(client, msg);
+  await reagir(client, msg, '📝');
 }
 
   // ===== ADM =====
   if (text.startsWith('/a ')) {
     diaData.adm.push(capitalizar(text.slice(3).trim()));
   salvar();
-    await reagir(client, msg);
+    await reagir(client, msg, '📌');
       }
 
 // ===== EDITAR =====
@@ -515,42 +540,46 @@ function textoPendencia(p) {
   return typeof p === 'string' ? p : p.texto;
 }
 
-// ===== RESUMO HOJE =====
-if (text === '/resumo') {
-  const diaISO = hoje();
-  const diaBR = hojeBR();
-  const d = getDia(diaISO);
+// ===== GERADOR DE RESUMO =====
+function gerarResumoPorDia(diaISO, diaExibicao) {
+  const d = data[diaISO];
 
-  const temOutrasCoisas =
-    d.pendencias.length > 0 ||
-    d.planos.length > 0 ||
-    d.bruna.length > 0 ||
-    d.zoogene.length > 0 ||
-    d.tecsa.length > 0 ||
-    d.labpet.length > 0 ||
-    d.adm.length > 0;
+  if (!d) return `Sem dados para a data ${diaExibicao}.`;
 
-  let resposta = temOutrasCoisas ? `PENDÊNCIAS ${diaBR}\n` : '';
+  const temPendencias = (d.pendencias && d.pendencias.length > 0);
+  const temPlanos = (d.planos && d.planos.length > 0);
+  const temBruna = (d.bruna && d.bruna.length > 0);
+  const temZoogene = (d.zoogene && d.zoogene.length > 0);
+  const temTecsa = (d.tecsa && d.tecsa.length > 0);
+  const temLabpet = (d.labpet && d.labpet.length > 0);
+  const temAdm = (d.adm && d.adm.length > 0);
+  const temBuscas = (d.buscas && d.buscas.length > 0);
+
+  const temCoisas = temPendencias || temPlanos || temBruna || temZoogene || temTecsa || temLabpet || temAdm || temBuscas;
+
+  if (!temCoisas) return `Sem dados para a data ${diaExibicao}.`;
+
+  let resposta = `PENDÊNCIAS ${diaExibicao}\n`;
 
   // PENDÊNCIAS
-  if (d.pendencias.length > 0) {
+  if (temPendencias) {
     d.pendencias.forEach(p => {
       resposta += `- ${textoPendencia(p)}\n`;
     });
   }
 
-  // GUIAS
-  const guiaZoogene = montarGuia(d.zoogene, 'Zoogene');
-  const guiaTecsa = montarGuia(d.tecsa, 'Tecsa');
-  const guiaLabpet = montarGuia(d.labpet, 'Labpet');
+  // GUIAS (Agrupadas via montarGuia)
+  const guiaZoogene = montarGuia(d.zoogene || [], 'Zoogene');
+  const guiaTecsa = montarGuia(d.tecsa || [], 'Tecsa');
+  const guiaLabpet = montarGuia(d.labpet || [], 'Labpet');
 
   if (guiaZoogene) resposta += `- ${guiaZoogene}\n`;
   if (guiaTecsa) resposta += `- ${guiaTecsa}\n`;
   if (guiaLabpet) resposta += `- ${guiaLabpet}\n`;
 
-  // PLANOS / BRUNA / ADM
+  // PLANOS / BRUNA / ADM (1 a 3 itens entram direto na lista principal, 4+ criam seção própria)
   function addSecao(titulo, lista) {
-    if (lista.length === 0) return;
+    if (!lista || lista.length === 0) return;
 
     if (lista.length < 4) {
       lista.forEach(p => resposta += `- ${textoPendencia(p)}\n`);
@@ -565,45 +594,37 @@ if (text === '/resumo') {
   addSecao("ADM", d.adm);
 
   // BUSCAS
-  if (d.buscas.length > 0) {
+  if (temBuscas) {
     resposta += `\nBUSCAS\n`;
     d.buscas.forEach(p => resposta += `- ${textoPendencia(p)}\n`);
   }
 
-  msg.reply(resposta);
+  return resposta.trim();
 }
 
-  // ===== RESUMO POR DATA =====
-  if (text.startsWith('/resumo ')) {
-    const dia = text.split(' ')[1];
-    const d = data[dia];
-
-    if (!d) return msg.reply("Sem dados nesse dia.");
-
-    let resposta = `PENDÊNCIAS ${dia}\n`;
-
-	if (d.pendencias.length > 0) {
-  	d.pendencias.forEach(p => resposta += `- ${p}\n`);
-  	resposta += `\n`;
+// ===== RESUMO HOJE (/r ou /resumo) =====
+if (text === '/r' || text === '/resumo') {
+  const diaISO = hoje();
+  const diaBR = hojeBR();
+  const resposta = gerarResumoPorDia(diaISO, diaBR);
+  return msg.reply(resposta);
 }
 
-    function addSecao(titulo, lista) {
-      if (lista.length > 0) {
-        resposta += `\n${titulo}\n`;
-        lista.forEach(p => resposta += `- ${p}\n`);
-      }
-    }
+// ===== RESUMO POR DATA (/r DATA ou /resumo DATA) =====
+if (text.startsWith('/r ') || text.startsWith('/resumo ')) {
+  const argumento = text.replace(/^\/(r|resumo)\s+/, '').trim();
+  const diaISO = converterParaISO(argumento);
 
-    addSecao("PLANOS", d.planos);
-    addSecao("BRUNA SOUZA", d.bruna);
-    addSecao("ZOOGENE", d.zoogene);
-    addSecao("TECSA", d.tecsa);
-    addSecao("LABPET", d.labpet);
-    addSecao("ADM", d.adm);
-    addSecao("BUSCAS", d.buscas);
-
-    msg.reply(resposta);
+  // Formata o cabeçalho de exibição para o padrão DD/MM
+  let diaExibicao = argumento;
+  if (argumento.includes('/')) {
+    const partes = argumento.split('/');
+    diaExibicao = `${partes[0].padStart(2, '0')}/${partes[1].padStart(2, '0')}`;
   }
+
+  const resposta = gerarResumoPorDia(diaISO, diaExibicao);
+  return msg.reply(resposta);
+}
 });
 
 // ===== EVITA CRASH =====

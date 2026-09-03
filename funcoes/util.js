@@ -21,14 +21,34 @@ function hojeBR() {
   });
 }
 
-async function reagir(client, msg) {
+// Converte DD/MM/AAAA, DD/MM/AA ou DD/MM para YYYY-MM-DD (formato do dados.json)
+function converterParaISO(dataTexto) {
+  if (!dataTexto) return hoje();
+
+  let limpo = dataTexto.trim().replace(/-/g, '/');
+  let partes = limpo.split('/');
+
+  // Se digitar apenas DD/MM, insere o ano atual
+  if (partes.length === 2) {
+    const anoAtual = new Date().getFullYear();
+    partes.push(anoAtual);
+  }
+
+  if (partes.length === 3) {
+    let dia = partes[0].padStart(2, '0');
+    let mes = partes[1].padStart(2, '0');
+    let ano = partes[2].length === 2 ? `20${partes[2]}` : partes[2];
+    return `${ano}-${mes}-${dia}`;
+  }
+
+  return dataTexto;
+}
+
+async function reagir(client, msg, emoji = '✅') {
   try {
-    console.log("Tentando reagir...");
-    await client.sendReaction(msg.id.$1, '✅');
-    console.log("Reação enviada");
+    await client.sendReaction(msg.id._serialized, emoji);
   } catch (error) {
-    console.log("Erro ao reagir");
-    console.error(error);
+    console.log("Erro ao reagir:", error.message);
   }
 }
 
@@ -37,5 +57,6 @@ module.exports = {
   capitalizar,
   hoje,
   hojeBR,
+  converterParaISO,
   reagir
 };
