@@ -1,15 +1,14 @@
 @echo off
-cd /d "%~dp0"
-title Bot WhatsApp - Laboratorio Veterinario
+cd /d "C:\Users\marin\OneDrive\Desktop\bot-wpp"
 
 :menu
 cls
-echo ================================
-echo        BOT WHATSAPP - LAB
-echo ================================
+echo ==============================
+echo  INICIANDO O BOT
+echo ==============================
 echo.
 echo [1] Procurar atualizacao e iniciar
-echo [2] Iniciar bot
+echo [2] Iniciar bot direto
 echo [3] Sair
 echo.
 set /p opcao="Escolha uma opcao: "
@@ -18,33 +17,35 @@ if "%opcao%"=="1" goto atualizar
 if "%opcao%"=="2" goto iniciar
 if "%opcao%"=="3" exit
 
-echo Opcao invalida!
-timeout /t 2 >nul
 goto menu
 
 :atualizar
 cls
-echo Buscando atualizacoes no GitHub...
+echo Puxando atualizacoes do GitHub...
 git pull origin main
 echo.
-echo Pressione qualquer tecla para iniciar o bot...
-pause >nul
+pause
 goto iniciar
 
 :iniciar
 cls
-echo Iniciando o Bot WhatsApp...
+echo ==============================
+echo  BOT RODANDO
+echo ==============================
 echo.
-call npm start
 
-:: Esta parte roda ao desligar o bot (com Ctrl+C)
+node bot.js
+
 echo.
-echo ========================================
-echo   Enviando dados atualizados pro Git...
-echo ========================================
+echo ==============================
+echo  ENVIANDO DADOS PRO GIT...
+echo ==============================
 git add .
-git commit -m "Atualizacao automatica ao desligar bot"
+git commit -m "Atualizacao automatica ao desligar"
 git push origin main
+
 echo.
-echo Operacao concluida com sucesso!
+echo ==============================
+echo  O BOT FOI ENCERRADO
+echo ==============================
 pause
