@@ -1,0 +1,1116 @@
+{
+  "2026-03-24": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [
+      "Tecsa"
+    ],
+    "zoogene": [
+      "Nina",
+      "Teste",
+      "Teste"
+    ],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Oioioi"
+    ]
+  },
+  "2026-03-29": {
+    "planos": [
+      "Ver se Pet town lançou Nina no Plamev (guia no quadro)"
+    ],
+    "pendencias": [
+      "Ver com Cvet sobre swab de Thor",
+      "Ver com cia do animal sobre cida (guia no quadro)"
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-12": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Testando sobre hemo de Amora",
+        "clinica": "testando",
+        "paciente": "amora",
+        "sistema": "",
+        "exame": "hemo",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-13": {
+    "planos": [
+      {
+        "texto": "Ver se Renata torres lançou Zagu no Pettop",
+        "clinica": "renata torres",
+        "paciente": "zagu",
+        "sistema": "pettop",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com Friends sobre Beckie (amostras no a fazer - fezes, edta e bioq)",
+        "clinica": "friends",
+        "paciente": "beckie",
+        "sistema": "",
+        "exame": "",
+        "obs": "amostras no a fazer - fezes, edta e bioq"
+      },
+      {
+        "texto": "Ver com Cemevet sobre citologia de Sarita (ler lâminas)",
+        "clinica": "cemevet",
+        "paciente": "sarita",
+        "sistema": "",
+        "exame": "citologia",
+        "obs": "ler lâminas"
+      },
+      {
+        "texto": "Ver com Pet center sobre citologia de Romeu (ler lêminas)",
+        "clinica": "pet center",
+        "paciente": "romeu",
+        "sistema": "",
+        "exame": "citologia",
+        "obs": "ler lêminas"
+      },
+      {
+        "texto": "Ver com Pet filhos sobre parasitologico + giardia sem amostra de Mafalda",
+        "clinica": "pet filhos",
+        "paciente": "mafalda",
+        "sistema": "",
+        "exame": "parasitologico + giardia sem amostra",
+        "obs": ""
+      },
+      {
+        "texto": "Ver com Pet filhos sobre parasitologico de fezes sem amostra de Pudge",
+        "clinica": "pet filhos",
+        "paciente": "pudge",
+        "sistema": "",
+        "exame": "parasitologico de fezes sem amostra",
+        "obs": ""
+      }
+    ],
+    "buscas": [
+      "Quintal pet"
+    ],
+    "zoogene": [
+      "Rico",
+      "Duda",
+      "Bento"
+    ],
+    "tecsa": [],
+    "labpet": [
+      "Whisky"
+    ],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-14": {
+    "planos": [
+      {
+        "texto": "Ver se Pet filhos lançou o hemograma de Zac no Pettop",
+        "clinica": "pet filhos",
+        "paciente": "zac",
+        "sistema": "pettop",
+        "exame": "hemograma",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com Dra vitoria sobre bilirrubina de Apolo",
+        "clinica": "dra vitoria",
+        "paciente": "apolo",
+        "sistema": "",
+        "exame": "bilirrubina",
+        "obs": ""
+      },
+      {
+        "texto": "Ver com Pet filhos sobre fezes não recebidas de Nino",
+        "clinica": "pet filhos",
+        "paciente": "nino",
+        "sistema": "",
+        "exame": "fezes não recebidas",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-15": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": [
+      {
+        "texto": "Ver se lançou o ferro de Bob (diogo pediu para congelar o soro mas ele tem exame de ferro)",
+        "clinica": "",
+        "paciente": "bob",
+        "sistema": "-",
+        "exame": "ferro",
+        "obs": "diogo pediu para congelar o soro mas ele tem exame de ferro"
+      }
+    ]
+  },
+  "2026-07-18": {
+    "planos": [
+      {
+        "texto": "Ver se Buturi lançou o hemograma de Malu no Doglife (enviaram recoleta que era para outro lab, falaram que foi lançado mas não localizei)",
+        "clinica": "buturi",
+        "paciente": "malu",
+        "sistema": "doglife",
+        "exame": "hemograma",
+        "obs": "enviaram recoleta que era para outro lab, falaram que foi lançado mas não localizei"
+      },
+      {
+        "texto": "Ver se Pettown lançou o parasitologico de Shakira no Eupet (estavam sem energia e ficaram de lançar qnd desse)",
+        "clinica": "pettown",
+        "paciente": "shakira",
+        "sistema": "eupet",
+        "exame": "parasitologico",
+        "obs": "estavam sem energia e ficaram de lançar qnd desse"
+      },
+      {
+        "texto": "Ver se Ecopet zn lançou o pet love de Pirulito no Hemograma (lançaram os bioquimicos mas não o hemograma, hemograma lido, só precisa laudar)",
+        "clinica": "ecopet zn",
+        "paciente": "pirulito",
+        "sistema": "hemograma",
+        "exame": "pet love",
+        "obs": "lançaram os bioquimicos mas não o hemograma, hemograma lido, só precisa laudar"
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com Pet filhos sobre b12, bilirrubinas e coagulograma de Jersey (não mandaram amostra protegida e não mandaram tubo azul)",
+        "clinica": "pet filhos",
+        "paciente": "jersey",
+        "sistema": "",
+        "exame": "b12, bilirrubinas e coagulograma",
+        "obs": "não mandaram amostra protegida e não mandaram tubo azul"
+      },
+      {
+        "texto": "Ver com Quintal sobre t4 livre pós diálise de Luck (aguardando a resposta se vai ser quimio ou radio, amostra no a fazer)",
+        "clinica": "quintal",
+        "paciente": "luck",
+        "sistema": "",
+        "exame": "t4 livre pós diálise",
+        "obs": "aguardando a resposta se vai ser quimio ou radio, amostra no a fazer"
+      }
+    ],
+    "buscas": [
+      "Cemevet"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-20": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [
+      "Elinho"
+    ],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-23": {
+    "planos": [
+      {
+        "texto": "Cancelar a glicose de bob lyra no pettop (amigo bicho)",
+        "clinica": "amigo bicho",
+        "paciente": "bob lyra",
+        "sistema": "pettop",
+        "exame": "glicose",
+        "obs": "será necessário cancelar"
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ecopet vai enviar o tubo de hemograma de sophie",
+        "clinica": "ecopet",
+        "paciente": "sophie",
+        "sistema": "",
+        "exame": "hemograma",
+        "obs": ""
+      }
+    ],
+    "buscas": [
+      "Amigo bicho"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-24": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Teste sobre teste de Teste",
+        "clinica": "teste",
+        "paciente": "teste",
+        "sistema": "",
+        "exame": "teste",
+        "obs": ""
+      },
+      {
+        "texto": "Ver com Teste teste teste sobre ",
+        "clinica": "teste teste teste",
+        "paciente": "",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver com Teste teste teste sobre ",
+        "clinica": "teste teste teste",
+        "paciente": "",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver com Teste teste teste sobre ",
+        "clinica": "teste teste teste",
+        "paciente": "",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver com Teste sobre teste de Teste",
+        "clinica": "teste",
+        "paciente": "teste",
+        "sistema": "",
+        "exame": "teste",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-25": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-27": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [
+      "Curado",
+      "Jesualdo"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-07-31": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-01": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [
+      "Pet center",
+      "Friendly"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Ler a lâmina de costa (anállise de liquido)"
+    ],
+    "bruna": []
+  },
+  "2026-08-03": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com - sobre cito de esporo de Fifi",
+        "clinica": "-",
+        "paciente": "fifi",
+        "sistema": "",
+        "exame": "cito de esporo",
+        "obs": ""
+      }
+    ],
+    "buscas": [
+      "Villa pet",
+      "Cemevet prado (urgência)"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Cadastrar a clínica da dra amanda nogueira"
+    ],
+    "bruna": []
+  },
+  "2026-08-04": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [
+      "Jesualdo"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-05": {
+    "planos": [
+      {
+        "texto": "Ver se Ecopet zn lançou Lucky no Care",
+        "clinica": "Ecopet Zn",
+        "paciente": "lucky",
+        "sistema": "care",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com - sobre citoc de Escaminha",
+        "clinica": "-",
+        "paciente": "escaminha",
+        "sistema": "",
+        "exame": "citoc",
+        "obs": ""
+      },
+      {
+        "texto": "Ver com - sobre citoe de Pixuim",
+        "clinica": "-",
+        "paciente": "pixuim",
+        "sistema": "",
+        "exame": "citoe",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [
+      "Darwin",
+      "Marley"
+    ],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-06": {
+    "planos": [
+      {
+        "texto": "Ver se Amigo bicho lançou o hemograma de Thor no Eu pet",
+        "clinica": "Amigo Bicho",
+        "paciente": "thor",
+        "sistema": "Eu Pet",
+        "exame": "hemo",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ler a lâmina de hemograma de Thor",
+        "clinica": "-",
+        "paciente": "thor",
+        "sistema": "",
+        "exame": "hemo",
+        "obs": ""
+      },
+      {
+        "texto": "Ver com Cvet sobre a citologia de Thor",
+        "clinica": "cvet",
+        "paciente": "thor",
+        "sistema": "",
+        "exame": "cito",
+        "obs": ""
+      }
+    ],
+    "buscas": [
+      "Friends"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": [
+      {
+        "texto": "Ver se lançou o citologia de ouvido de Thor",
+        "clinica": "",
+        "paciente": "thor",
+        "sistema": "Eu Pet",
+        "exame": "citologia de ouvido",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se lançou a citologia de ouvido de Thor no Eu pet",
+        "clinica": "",
+        "paciente": "thor",
+        "sistema": "Eu Pet",
+        "exame": "citoc",
+        "obs": ""
+      }
+    ]
+  },
+  "2026-08-09": {
+    "planos": [
+      {
+        "texto": "Ver se Cvet lançou o hemograma (pagou taxa de urgência e o pettop não liberou) de Lupita no Pettop",
+        "clinica": "cvet",
+        "paciente": "lupita",
+        "sistema": "pettop",
+        "exame": "hemograma (pagou taxa de urgência e o pettop não liberou)",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Eco lançou Layla no Care",
+        "clinica": "eco",
+        "paciente": "layla",
+        "sistema": "care",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ler a citologia de esporo de Bruna",
+        "clinica": "-",
+        "paciente": "bruna",
+        "sistema": "",
+        "exame": "citoe",
+        "obs": ""
+      },
+      {
+        "texto": "Cito1 de Zacarias",
+        "clinica": "-",
+        "paciente": "zacarias",
+        "sistema": "",
+        "exame": "cito1",
+        "obs": ""
+      },
+      {
+        "texto": "Ver com Friends sobre Chico, oliver e oreo",
+        "clinica": "friends",
+        "paciente": "chico, oliver e oreo",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [
+      "Zacarias",
+      "Leya",
+      "Lion"
+    ],
+    "tecsa": [],
+    "labpet": [
+      "Haru",
+      "Lion"
+    ],
+    "adm": [],
+    "bruna": [
+      {
+        "texto": "Ver se lançou o cultura e cito (aceitar no pettop e ver sobre a cito) de Ares",
+        "clinica": "",
+        "paciente": "ares",
+        "sistema": "pettop",
+        "exame": "cultura e cito (aceitar no pettop e ver sobre a cito)",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se lançou o cedia de Cacau",
+        "clinica": "",
+        "paciente": "cacau",
+        "sistema": "-",
+        "exame": "cedia",
+        "obs": ""
+      }
+    ]
+  },
+  "2026-08-10": {
+    "planos": [
+      {
+        "texto": "Ver se Villa lançou Maguie no Care",
+        "clinica": "villa",
+        "paciente": "maguie",
+        "sistema": "care",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Cvi lançou Perola no Pet love",
+        "clinica": "cvi",
+        "paciente": "perola",
+        "sistema": "pet love",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com Bruna souza sobre ",
+        "clinica": "Bruna Souza",
+        "paciente": "",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ler a citologia de esporo de Flocos",
+        "clinica": "-",
+        "paciente": "flocos",
+        "sistema": "",
+        "exame": "citoe",
+        "obs": ""
+      }
+    ],
+    "buscas": [
+      "Villa",
+      "Jesualdo"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-11": {
+    "planos": [
+      {
+        "texto": "Ver se Cuida lançou Sophie no Pettop",
+        "clinica": "cuida",
+        "paciente": "sophie",
+        "sistema": "pettop",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com Dra. malu do king pet sobre contr de Thoby",
+        "clinica": "dra. malu do king pet",
+        "paciente": "thoby",
+        "sistema": "",
+        "exame": "contr",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-12": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [
+      "Pet town",
+      "Buturi"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-13": {
+    "planos": [],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-15": {
+    "planos": [
+      {
+        "texto": "Ver se Ecopet zn lançou Linc no Pet love",
+        "clinica": "Ecopet Zn",
+        "paciente": "linc",
+        "sistema": "pet love",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Cvet lançou o giardia de Bartô no Pettop",
+        "clinica": "cvet",
+        "paciente": "bartô",
+        "sistema": "pettop",
+        "exame": "giardia",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [
+      "Dra. pet friendly"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Cancelar bilirrubina e exame externo de guerreiro da ecopet aldeia",
+      "Valor no sistema de proteina total pela petlove",
+      "Mandar mensagem pra tutora de ximbel (contato no chat com jessica yasmine) pra acertar o financeiro"
+    ],
+    "bruna": []
+  },
+  "2026-08-20": {
+    "planos": [
+      {
+        "texto": "Ver se Xodó lançou Frederico no Au happy (estava pedindo para mudar a senha e não consegui acessar)",
+        "clinica": "xodó",
+        "paciente": "frederico",
+        "sistema": "au happy",
+        "exame": "-",
+        "obs": "estava pedindo para mudar a senha e não consegui acessar"
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Rodar os bioquímicos de Luke (máquina já estava deligada)",
+        "clinica": "-",
+        "paciente": "luke",
+        "sistema": "",
+        "exame": "bioqs",
+        "obs": "máquina já estava deligada"
+      }
+    ],
+    "buscas": [
+      "Amigo bicho"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-22": {
+    "planos": [
+      {
+        "texto": "Ver se Cemevet prado lançou Minnie no Pettop",
+        "clinica": "Cemevet prado",
+        "paciente": "minnie",
+        "sistema": "pettop",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Leonidas lançou Simon no Eu pet",
+        "clinica": "leonidas",
+        "paciente": "simon",
+        "sistema": "Eu Pet",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Lirios lançou Cristal no Pet love",
+        "clinica": "lirios",
+        "paciente": "cristal",
+        "sistema": "pet love",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [
+      "Dra. pet friendly"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-24": {
+    "planos": [
+      {
+        "texto": "Ver se Lirios lançou Cristal no Pet love",
+        "clinica": "lirios",
+        "paciente": "cristal",
+        "sistema": "pet love",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [
+      "Riane simões"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Ver mensagem do número com final 7115 - confirmar se os exames estã disponíveis no pettop"
+    ],
+    "bruna": []
+  },
+  "2026-08-25": {
+    "planos": [
+      {
+        "texto": "Ver se - lançou Apolo e bily no Eu pet",
+        "clinica": "-",
+        "paciente": "apolo e bily",
+        "sistema": "Eu Pet",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com Chaterrie sobre Sushi",
+        "clinica": "chaterrie",
+        "paciente": "sushi",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ler a citologia de ouvido de Farofa",
+        "clinica": "-",
+        "paciente": "farofa",
+        "sistema": "",
+        "exame": "citoc",
+        "obs": ""
+      },
+      {
+        "texto": "Giardia de Otto",
+        "clinica": "-",
+        "paciente": "otto",
+        "sistema": "",
+        "exame": "giardia",
+        "obs": ""
+      },
+      {
+        "texto": "Ppel de Nina",
+        "clinica": "-",
+        "paciente": "nina",
+        "sistema": "",
+        "exame": "ppel",
+        "obs": ""
+      },
+      {
+        "texto": "Rpcu de Tony",
+        "clinica": "-",
+        "paciente": "tony",
+        "sistema": "",
+        "exame": "rpcu",
+        "obs": ""
+      },
+      {
+        "texto": "Ler a capa de Lula",
+        "clinica": "-",
+        "paciente": "lula",
+        "sistema": "",
+        "exame": "ler a capa",
+        "obs": ""
+      },
+      {
+        "texto": "Fazer capa de Summer e doly",
+        "clinica": "-",
+        "paciente": "summer e doly",
+        "sistema": "",
+        "exame": "fazer capa",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [
+      "Tule"
+    ],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Repetir marley e zito na máquina de hemograma"
+    ],
+    "bruna": []
+  },
+  "2026-08-26": {
+    "planos": [
+      {
+        "texto": "Ver se ecopet aldeia viu sobre fosfatase não lançada de tedy no pet love",
+        "clinica": "eco",
+        "paciente": "tedy",
+        "sistema": "pet love",
+        "exame": "fosfatase não lançada",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se o pettop aprovou os exames de nega",
+        "clinica": "-",
+        "paciente": "nega",
+        "sistema": "pett",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [
+      "Dra. pet friendly"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-27": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Bruna souza sobre ",
+        "clinica": "Bruna Souza",
+        "paciente": "",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [
+      "Thor"
+    ],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Urgente acabou o pano multiuso"
+    ],
+    "bruna": []
+  },
+  "2026-08-28": {
+    "planos": [
+      {
+        "texto": "Ver se Lirios lançou Romeu no Ptt",
+        "clinica": "lirios",
+        "paciente": "romeu",
+        "sistema": "ptt",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-29": {
+    "planos": [
+      {
+        "texto": "Ver se Cvet lançou Lilica no Pet top",
+        "clinica": "cvet",
+        "paciente": "lilica",
+        "sistema": "Pet top",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [
+      "Bicho mania",
+      "Dengosso",
+      "Quintal pet"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-08-31": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Cvet sobre Lilica",
+        "clinica": "cvet",
+        "paciente": "lilica",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "buscas": [
+      "Chatterie"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-09-01": {
+    "planos": [
+      {
+        "texto": "Ver se Ecopet aldeia lançou Nora no Pet love",
+        "clinica": "Ecopet Aldeia",
+        "paciente": "nora",
+        "sistema": "Pet love",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Villa pet lançou o parasitológico de Francisco e frederico no Eu pet",
+        "clinica": "Villa Pet",
+        "paciente": "francisco e frederico",
+        "sistema": "Eu Pet",
+        "exame": "pfez",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Villa pet lançou o hemograma de Malu no Eu pet",
+        "clinica": "Villa Pet",
+        "paciente": "malu",
+        "sistema": "Eu Pet",
+        "exame": "hemo",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Ecopet aldeia lançou Nora no Pet love",
+        "clinica": "Ecopet Aldeia",
+        "paciente": "nora",
+        "sistema": "Pet love",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com Villa pet sobre o parasitológico de Pirilampo (sem guia)",
+        "clinica": "Villa Pet",
+        "paciente": "pirilampo",
+        "sistema": "",
+        "exame": "pfez",
+        "obs": "sem guia"
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Responder dra mariana azevêdo e dra lirêda",
+      "1 4dx"
+    ],
+    "bruna": []
+  },
+  "2026-09-02": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Friends sobre Bella (sem requisição)",
+        "clinica": "friends",
+        "paciente": "bella",
+        "sistema": "",
+        "exame": "",
+        "obs": "sem requisição"
+      },
+      {
+        "texto": "Fazer o 4DX de Nikko (amostra no a fazer)",
+        "clinica": "-",
+        "paciente": "nikko",
+        "sistema": "",
+        "exame": "4dx",
+        "obs": "amostra no a fazer"
+      }
+    ],
+    "buscas": [],
+    "zoogene": [
+      "Tony josé"
+    ],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Tem apenas um teste de cinomose"
+    ],
+    "bruna": []
+  },
+  "2026-09-03": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Cia sobre Café (talvez seja um cão? eritrograma não bate)",
+        "clinica": "cia",
+        "paciente": "café",
+        "sistema": "",
+        "exame": "",
+        "obs": "talvez seja um cão? eritrograma não bate"
+      },
+      {
+        "texto": "Ver com Cia sobre Hugo (talvez seja um gato? eritrograma não bate)",
+        "clinica": "cia",
+        "paciente": "hugo",
+        "sistema": "",
+        "exame": "",
+        "obs": "talvez seja um gato? eritrograma não bate"
+      },
+      {
+        "texto": "Ler a citologia de Wedd, chloe e tobby",
+        "clinica": "-",
+        "paciente": "wedd, chloe e tobby",
+        "sistema": "",
+        "exame": "cito",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [
+      "Derek"
+    ],
+    "adm": [],
+    "bruna": []
+  }
+}
