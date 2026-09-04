@@ -1,12 +1,7 @@
-- Reações não funcionam
 - Edição em bulk
 - Reconhecer listas de pacientes na mesma msg
 - Colocar as mesmas clínicas juntas
-- /del object object
 - Enviar resumos no grupo da equipe com comando
-- Compartilhar os dados sim
 - Consertar o debug
-- Edit parou de funcionar???
-- Na vdd clínica sem acento, adicionar clínica
-- Edit não reconhece os atalhos?
-- Teste
+- Na vdd clínica sem acento, adicionar clínica - não sei se já arrumou???
+- Edit não reconhece os atalhos? - acho que já arrumou 

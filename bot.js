@@ -137,15 +137,23 @@ client.on('loading_screen', (percent, message) => {
 client.on('ready', async () => {
   console.log('Bot conectado!');
 
-  try {
-    const meuNumero = client.info.wid._serialized;
+  const ID_GRUPO = '120363409733602218@g.us';
 
-    await client.sendMessage(
-      meuNumero,
-      'Bot conectado no WhatsApp.'
-    );
+  try {
+    // Tenta enviar a notificação no grupo (gera notificação na barra)
+    await client.sendMessage(ID_GRUPO, '🟢 Bot conectado e operacional!');
+    console.log('📢 Notificação de inicialização enviada no grupo!');
   } catch (error) {
-    console.error('Erro ao enviar mensagem de conexão:', error);
+    console.warn('⚠️ Falha ao enviar no grupo. Tentando enviar no privado...');
+    
+    try {
+      // Plano B: Se o grupo falhar, envia direto no seu número privado
+      const meuNumero = client.info.wid._serialized;
+      await client.sendMessage(meuNumero, '🟢 Bot conectado e operacional!');
+      console.log('📱 Notificação enviada no privado.');
+    } catch (errPrivado) {
+      console.error('❌ Erro ao enviar mensagem no privado:', errPrivado.message || errPrivado);
+    }
   }
 });
 
@@ -160,9 +168,6 @@ client.on('disconnected', (reason) => {
 // ===== BOT =====
 client.on('message_create', async msg => {
   //if (!msg.fromMe) return;
-  
-// Imprime no terminal o ID de qualquer chat/grupo onde entrar uma mensagem
-  console.log(`📌 Mensagem recebida de: ${msg.from} | Nome do Chat: ${msg.to}`);
 
   const text = msg.body.toLowerCase().trim();
 
