@@ -27,15 +27,17 @@ cls
 echo Buscando atualizacoes no GitHub...
 git pull origin main
 echo.
-pause
+echo Pressione qualquer tecla para iniciar o bot...
+pause >nul
 goto iniciar
 
 :iniciar
 cls
 echo Iniciando o Bot WhatsApp...
-npm start
+echo.
+call npm start
 
-:: Quando o bot for encerrado (ex: pressionando Ctrl+C), o script continua daqui:
+:: Esta parte roda ao desligar o bot (com Ctrl+C)
 echo.
 echo ========================================
 echo   Enviando dados atualizados pro Git...
@@ -44,5 +46,5 @@ git add .
 git commit -m "Atualizacao automatica ao desligar bot"
 git push origin main
 echo.
-echo Dados salvos no GitHub com sucesso!
+echo Operacao concluida com sucesso!
 pause
