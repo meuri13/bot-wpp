@@ -9,3 +9,4 @@
 - Edit parou de funcionar???
 - Na vdd clínica sem acento, adicionar clínica
 - Edit não reconhece os atalhos?
+- Teste

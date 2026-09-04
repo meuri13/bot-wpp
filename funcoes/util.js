@@ -46,9 +46,12 @@ function converterParaISO(dataTexto) {
 
 async function reagir(client, msg, emoji = '✅') {
   try {
-    await client.sendReaction(msg.id._serialized, emoji);
+    console.log("Tentando reagir...");
+    await client.sendReaction(msg.id.$1, emoji);
+    console.log("Reação enviada");
   } catch (error) {
-    console.log("Erro ao reagir:", error.message);
+    console.log("Erro ao reagir");
+    console.error(error);
   }
 }
 

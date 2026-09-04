@@ -3,6 +3,8 @@ const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const fs = require('fs');
 
+console.log('🚀 [1/5] Iniciando o script do Bot...');
+
 // ===== FUNÇÕES =====
 const { 
   capitalizar,
@@ -31,6 +33,8 @@ const {
   adicionarGuia,
   montarGuia
 } = require('./funcoes/guias');
+
+console.log('📂 [2/5] Módulos e funções carregados com sucesso.');
 
 // ===== CLIENT =====
 const client = new Client({
@@ -121,6 +125,14 @@ client.on('qr', qr => {
   qrcode.generate(qr, { small: true });
 });
 
+client.on('authenticated', () => {
+  console.log('🔑 [4/5] Autenticado com sucesso! Carregando sessão do WhatsApp...');
+});
+
+client.on('loading_screen', (percent, message) => {
+  console.log(`⏳ [4.5/5] Carregando WhatsApp Web: ${percent}% - ${message}`);
+});
+
 // ===== READY =====
 client.on('ready', async () => {
   console.log('Bot conectado!');
@@ -137,9 +149,20 @@ client.on('ready', async () => {
   }
 });
 
+client.on('auth_failure', (msg) => {
+  console.error('❌ [ERRO DE AUTENTICAÇÃO] Falha ao autenticar:', msg);
+});
+
+client.on('disconnected', (reason) => {
+  console.warn('⚠️ [DESCONECTADO] O bot foi desconectado:', reason);
+});
+
 // ===== BOT =====
 client.on('message_create', async msg => {
   //if (!msg.fromMe) return;
+  
+// Imprime no terminal o ID de qualquer chat/grupo onde entrar uma mensagem
+  console.log(`📌 Mensagem recebida de: ${msg.from} | Nome do Chat: ${msg.to}`);
 
   const text = msg.body.toLowerCase().trim();
 
@@ -399,71 +422,89 @@ if (text.startsWith('/edit ')) {
 
   const item = lista[index];
 
-  // ===== EDIÇÃO POR CAMPO =====
-  const campos = ['clinica', 'paciente', 'sistema', 'exame', 'obs'];
+  // Helper local para processar atalhos com seguranca
+  const processarTexto = (txt) => {
+    if (typeof aplicarAtalhos === 'function') {
+      return aplicarAtalhos(txt);
+    }
+    return txt;
+  };
 
-  if (campos.includes(partes[3]) && typeof item !== 'string') {
-    const campo = partes[3];
-    const valor = partes.slice(4).join(' ');
+  // ===== PRIORIDADE 1: EDIÇÃO POR CAMPO ESPECÍFICO (/edit pd 1 clinica cvet) =====
+  const camposValidos = ['clinica', 'paciente', 'sistema', 'exame', 'obs'];
+  const campoInformado = partes[3] ? partes[3].toLowerCase() : null;
 
-    const antigo = item[campo];
-
-    item[campo] = valor;
-
-    // atualiza a frase depois da mudança
-    if (tipo === 'pd') {
-      item.texto = montarPendencia(
-        item.clinica,
-        item.paciente,
-        item.exame,
-        item.obs
-      );
+  if (campoInformado && camposValidos.includes(campoInformado) && typeof item !== 'string') {
+    const valorBruto = partes.slice(4).join(' ');
+    
+    if (!valorBruto) {
+      return msg.reply(`Informe o novo valor para o campo *${campoInformado}*.`);
     }
 
-    if (tipo === 'p') {
-      item.texto = montarPlano(
-        item.clinica,
-        item.paciente,
-        item.sistema,
-        item.exame,
-        item.obs
-      );
-    }
+    const valorComAtalhos = processarTexto(valorBruto);
+    const antigo = item[campoInformado];
 
-    if (tipo === 'bs') {
-      item.texto = montarBruna(
-        item.paciente,
-        item.sistema,
-        item.exame,
-        item.obs
-      );
+    // Atualiza o campo especifico
+    item[campoInformado] = valorComAtalhos;
+
+    // Recalcula a frase completa com base nas suas funcoes de montagem
+    if (tipo === 'pd' && typeof montarPendencia === 'function') {
+      item.texto = montarPendencia(item.clinica, item.paciente, item.exame, item.obs);
+    } else if (tipo === 'p' && typeof montarPlano === 'function') {
+      item.texto = montarPlano(item.clinica, item.paciente, item.sistema, item.exame, item.obs);
+    } else if (tipo === 'bs' && typeof montarBruna === 'function') {
+      item.texto = montarBruna(item.paciente, item.sistema, item.exame, item.obs);
     }
 
     salvar();
 
     return msg.reply(
-      `Editado:\n${campo}: ${antigo || '(vazio)'} → ${valor}\n\n${item.texto}`
+      `Editado (*${campoInformado}*):\nDe: ${antigo || '(vazio)'}\nPara: *${valorComAtalhos}*\n\n*Resultado:* ${item.texto || ''}`
     );
   }
 
+  // ===== OPÇÃO SECUNDÁRIA: TEXTO INTEIRO OU BARRAS =====
+  const novoTextoBruto = partes.slice(3).join(' ');
 
-  // ===== EDIÇÃO NORMAL (texto inteiro) =====
-  const novoTexto = partes.slice(3).join(' ');
+  if (!novoTextoBruto) {
+    return msg.reply('Digite o novo texto ou especifique o campo para editar.');
+  }
 
   const antigo = typeof item === 'string'
     ? item
-    : item.texto;
+    : (item.texto || `${item.clinica || ''} ${item.paciente || ''}`.trim());
+
+  const novoTextoComAtalhos = processarTexto(novoTextoBruto);
 
   if (typeof item === 'string') {
-    lista[index] = capitalizar(novoTexto);
+    // Listas de texto simples (buscas, adm, etc.)
+    lista[index] = typeof capitalizar === 'function' ? capitalizar(novoTextoComAtalhos) : novoTextoComAtalhos;
   } else {
-    item.texto = capitalizar(novoTexto);
+    // Se for objeto e usar estrutura por barras (ex: /edit pd 1 cvet/thor/hemo)
+    if (novoTextoComAtalhos.includes('/')) {
+      const pedacos = novoTextoComAtalhos.split('/');
+      item.clinica = processarTexto((pedacos[0] || '').trim());
+      item.paciente = (pedacos[1] || '').trim();
+      item.exame = processarTexto((pedacos[2] || '').trim());
+      item.obs = (pedacos[3] || '').trim();
+
+      if (tipo === 'pd' && typeof montarPendencia === 'function') {
+        item.texto = montarPendencia(item.clinica, item.paciente, item.exame, item.obs);
+      } else if (tipo === 'p' && typeof montarPlano === 'function') {
+        item.texto = montarPlano(item.clinica, item.paciente, item.sistema, item.exame, item.obs);
+      }
+    } else {
+      // Texto corrido livre (ex: /edit pd 1 Ver com Cvet sobre o exame de Thor)
+      item.texto = typeof capitalizar === 'function' ? capitalizar(novoTextoComAtalhos) : novoTextoComAtalhos;
+    }
   }
 
   salvar();
 
+  const textoFinal = typeof item === 'string' ? lista[index] : item.texto;
+
   msg.reply(
-    `Editado:\nDe: ${antigo}\nPara: ${typeof item === 'string' ? lista[index] : item.texto}`
+    `Editado:\n*De:* ${antigo}\n*Para:* ${textoFinal}`
   );
 }
 
@@ -507,12 +548,12 @@ if (text === '/debug') {
 // ===== DELETAR =====
 if (text.startsWith('/del ')) {
   const partes = text.split(' ');
-  const tipo = partes[1];
+  const tipo = partes[1]; // Ex: 'pd', 'p', 'b', etc.
   const index = parseInt(partes[2]) - 1;
 
-if (isNaN(index)) {
-  return msg.reply('Número inválido.');
-}
+  if (isNaN(index)) {
+    return msg.reply('Número inválido.');
+  }
 
   const mapa = {
     p: 'planos',
@@ -528,9 +569,19 @@ if (isNaN(index)) {
   const lista = diaData[mapa[tipo]];
 
   if (lista && lista[index]) {
-    const removido = lista.splice(index, 1);
+    // [0] extrai o item do array retornado pelo splice
+    const removido = lista.splice(index, 1)[0]; 
     salvar();
-    msg.reply(`Removido: ${removido}`);
+
+    // Se for objeto (com clinica/paciente), formata o texto. Se for string simples, usa direto.
+    let textoExibicao = removido;
+    if (typeof removido === 'object' && removido !== null) {
+      const clinica = removido.clinica ? `${removido.clinica} - ` : '';
+      const paciente = removido.paciente || removido.texto || '';
+      textoExibicao = `${clinica}${paciente}`.trim();
+    }
+
+    msg.reply(`Removido: ${textoExibicao}`);
   } else {
     msg.reply('Item não encontrado.');
   }
@@ -633,4 +684,5 @@ process.on('unhandledRejection', err => {
 });
 
 // ===== START =====
+console.log('🌐 [3/5] Inicializando cliente e abrindo navegador...');
 client.initialize();
