@@ -73,6 +73,11 @@ const exames = {
       artigo: "o",
       acao: "Fazer"
     },
+    "uri":{
+      nome: "urina",
+      artigo: "a",
+      acao: "Rever"
+    },
 
     //citologia
     "cito":{
