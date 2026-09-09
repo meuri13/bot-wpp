@@ -1139,5 +1139,38 @@
       "Ver com o dog life sobre a citologia de arya"
     ],
     "bruna": []
+  },
+  "2026-09-08": {
+    "planos": [
+      {
+        "texto": "Ver se Ecopet aldeia lançou Joaquim no Pet top",
+        "clinica": "Ecopet Aldeia",
+        "paciente": "joaquim",
+        "sistema": "Pet top",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Uri de Miucha",
+        "clinica": "-",
+        "paciente": "miucha",
+        "sistema": "",
+        "exame": "uri",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [
+      "Mingau",
+      "Mylow"
+    ],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Cancelar parasitologico de pele de zed no pettop"
+    ],
+    "bruna": []
   }
 }
