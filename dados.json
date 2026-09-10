@@ -1172,5 +1172,33 @@
       "Cancelar parasitologico de pele de zed no pettop"
     ],
     "bruna": []
+  },
+  "2026-09-09": {
+    "planos": [
+      {
+        "texto": "Ver se Ecopet aldeia lançou Nina no Pet love",
+        "clinica": "Ecopet Aldeia",
+        "paciente": "nina",
+        "sistema": "Pet love",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": [
+      {
+        "texto": "Ver sobre dindinha com bruna souza",
+        "clinica": "",
+        "paciente": "dindinha",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      }
+    ]
   }
 }
