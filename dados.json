@@ -1200,5 +1200,43 @@
         "obs": ""
       }
     ]
+  },
+  "2026-09-10": {
+    "planos": [
+      {
+        "texto": "Lançar exames de chico no pet top (renata torres)",
+        "clinica": "renata torres",
+        "paciente": "chico",
+        "sistema": "Pet top",
+        "exame": "laçar no plano",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Ecopet aldeia lançou o colesterol de Sol no Pet top",
+        "clinica": "Ecopet Aldeia",
+        "paciente": "sol",
+        "sistema": "Pet top",
+        "exame": "colesterol",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ler a citologia de esporo de Brisa",
+        "clinica": "-",
+        "paciente": "brisa",
+        "sistema": "",
+        "exame": "citoe",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [
+      "Branquinho"
+    ],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
   }
 }
