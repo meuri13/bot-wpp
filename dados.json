@@ -1238,5 +1238,29 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-09-12": {
+    "planos": [
+      {
+        "texto": "Ver se Buturi lançou Paçoca no Pet love",
+        "clinica": "buturi",
+        "paciente": "paçoca",
+        "sistema": "Pet love",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [
+      "Quintal pet"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Imprimir a guia de jhoe",
+      "Reagente eletro acabando"
+    ],
+    "bruna": []
   }
 }
