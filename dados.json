@@ -1262,5 +1262,29 @@
       "Reagente eletro acabando"
     ],
     "bruna": []
+  },
+  "2026-09-14": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Villa pet sobre o parasitológico de Logan",
+        "clinica": "Villa Pet",
+        "paciente": "logan",
+        "sistema": "",
+        "exame": "pfez",
+        "obs": ""
+      }
+    ],
+    "buscas": [
+      "Buturi",
+      "Jesualdo"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Apenas 3 4dx"
+    ],
+    "bruna": []
   }
 }
