@@ -1286,5 +1286,26 @@
       "Apenas 3 4dx"
     ],
     "bruna": []
+  },
+  "2026-09-16": {
+    "planos": [
+      {
+        "texto": "Ver se Xodo lançou Ana julia no Pet top",
+        "clinica": "xodo",
+        "paciente": "ana julia",
+        "sistema": "Pet top",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Responder dra raissa sobre a cultura no care"
+    ],
+    "bruna": []
   }
 }

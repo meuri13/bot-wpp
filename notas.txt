@@ -7,3 +7,4 @@
 - Edit não reconhece os atalhos? - acho que já arrumou 
 - Sigla pra renata torres
 - Diferentes ações nos planos (cancelar, lançar etc)
+- Xodo
