@@ -1307,5 +1307,26 @@
       "Responder dra raissa sobre a cultura no care"
     ],
     "bruna": []
+  },
+  "2026-09-17": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Adriana lubambo sobre parvo de Pretinha (vai enviar a amostra dps)",
+        "clinica": "adriana lubambo",
+        "paciente": "pretinha",
+        "sistema": "",
+        "exame": "parvo",
+        "obs": "vai enviar a amostra dps"
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Resolveu com quintal sobre o teste de babesia de tobias?"
+    ],
+    "bruna": []
   }
 }
