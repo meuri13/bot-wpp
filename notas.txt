@@ -8,3 +8,11 @@
 - Sigla pra renata torres
 - Diferentes ações nos planos (cancelar, lançar etc)
 - Xodo
+- Adc doglife
+- /undo
+- Editar não funcionando direito?
+
+/edit p 1 clínica eco
+editado:
+*de:* ver se ecoa lançou princesa no doglife
+*para:* clínica eco
