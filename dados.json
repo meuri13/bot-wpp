@@ -1394,5 +1394,48 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-09-27": {
+    "planos": [
+      {
+        "texto": "Ver se - lançou Filó (filomena) no Pet top",
+        "clinica": "-",
+        "paciente": "filó (filomena)",
+        "sistema": "Pet top",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Cemevet lançou Dimitri no Pet top",
+        "clinica": "cemevet",
+        "paciente": "dimitri",
+        "sistema": "Pet top",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Buturi lançou Preta no Pet love",
+        "clinica": "buturi",
+        "paciente": "preta",
+        "sistema": "Pet love",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Buturi lançou o a fazer de Freddy no Plamev",
+        "clinica": "buturi",
+        "paciente": "freddy",
+        "sistema": "Plamev",
+        "exame": "a fazer",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
   }
 }
