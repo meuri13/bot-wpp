@@ -1,42 +1,36 @@
 const aplicarExames = require('./exames');
 
-const { capitalizar } = require('./util');
+const { 
+  capitalizar,
+  formatarListaPacientes
+ } = require('./util');
 
+// Exemplo em pendencias.js
 function montarPendencia(clinica, paciente, exame, obs) {
   let frase;
-
+  const pacientesFormatados = formatarListaPacientes(paciente);
   const infoExame = aplicarExames(exame);
 
-  // Pendência interna (sem clínica)
   if (clinica === "-") {
-
     if (infoExame) {
-      frase = `${infoExame.acao} ${infoExame.artigo} ${infoExame.nome} de ${capitalizar(paciente)}`;
+      frase = infoExame.acao + ' ' + infoExame.artigo + ' ' + infoExame.nome + ' de ' + pacientesFormatados;
     } else if (exame && exame !== "-") {
-      frase = `${capitalizar(exame)} de ${capitalizar(paciente)}`;
+      frase = capitalizar(exame) + ' de ' + pacientesFormatados;
     } else {
-      frase = `Ver sobre ${capitalizar(paciente)}`;
+      frase = 'Ver sobre ' + pacientesFormatados;
     }
-
-  }
-
-  // Pendência com clínica
-  else {
-
+  } else {
     if (infoExame) {
       const artigo = infoExame.artigo2 || infoExame.artigo;
-
-      frase = `Ver com ${capitalizar(clinica)} sobre ${artigo} ${infoExame.nome} de ${capitalizar(paciente)}`;
+      frase = 'Ver com ' + capitalizar(clinica) + ' sobre ' + artigo + ' ' + infoExame.nome + ' de ' + pacientesFormatados;
     } else if (exame && exame !== "-") {
-      frase = `Ver com ${capitalizar(clinica)} sobre ${exame} de ${capitalizar(paciente)}`;
+      frase = 'Ver com ' + capitalizar(clinica) + ' sobre ' + exame + ' de ' + pacientesFormatados;
     } else {
-      frase = `Ver com ${capitalizar(clinica)} sobre ${capitalizar(paciente)}`;
+      frase = 'Ver com ' + capitalizar(clinica) + ' sobre ' + pacientesFormatados;
     }
-
   }
 
-  if (obs) frase += ` (${obs})`;
-
+  if (obs) frase += ' (' + obs + ')';
   return frase;
 }
 

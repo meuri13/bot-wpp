@@ -55,11 +55,29 @@ async function reagir(client, msg, emoji = '✅') {
   }
 }
 
+function formatarListaPacientes(textoPacientes) {
+  if (!textoPacientes) return '';
+  
+  // Separa por vírgula e limpa os espaços
+  const lista = textoPacientes.split(',').map(p => p.trim()).filter(Boolean);
+  
+  if (lista.length === 0) return '';
+  if (lista.length === 1) return capitalizar(lista[0]);
+  if (lista.length === 2) return capitalizar(lista[0]) + ' e ' + capitalizar(lista[1]);
+  
+  // Para 3 ou mais pacientes (ex: Luna, Mike e Luke)
+  const ultimos = lista.slice(-1)[0];
+  const primeiros = lista.slice(0, -1).map(capitalizar).join(', ');
+  
+  return primeiros + ' e ' + capitalizar(ultimos);
+}
+
 
 module.exports = {
   capitalizar,
   hoje,
   hojeBR,
   converterParaISO,
-  reagir
+  reagir,
+  formatarListaPacientes
 };

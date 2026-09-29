@@ -55,6 +55,8 @@ if (fs.existsSync('dados.json')) {
   data = JSON.parse(fs.readFileSync('dados.json'));
 }
 
+let ultimaAcao = null; // Suporte ao comando /undo
+
 function salvar() {
   fs.writeFileSync('dados.json', JSON.stringify(data, null, 2));
 }
@@ -170,8 +172,30 @@ client.on('message_create', async msg => {
   const text = msg.body.toLowerCase().trim();
 
   // filtro pra só comandos
-  const comandoValido = /^(\/p|\/pd|\/b|\/z|\/t|\/l|\/a|\/r|\/\?|\/p\?|\/del|\/debug|\/bs|\/edit|\/status|\/limpar|\/n)/;
+  const comandoValido = /^(\/p|\/pd|\/b|\/z|\/t|\/l|\/a|\/r|\/\?|\/p\?|\/del|\/debug|\/bs|\/edit|\/status|\/limpar|\/n|\/undo|\/rg)/;
   if (!comandoValido.test(text)) return;
+
+  // ===== UNDO (DESFAZER ÚLTIMA AÇÃO) =====
+  if (text === '/undo') {
+    if (!ultimaAcao) {
+      return msg.reply('Nenhuma ação recente para desfazer.');
+    }
+
+    const { tipo, item, categoria } = ultimaAcao;
+    const lista = diaData[categoria];
+
+    if (tipo === 'adicionar') {
+      const index = lista.indexOf(item);
+      if (index !== -1) {
+        lista.splice(index, 1);
+        salvar();
+        ultimaAcao = null;
+        await reagir(client, msg, '↩️');
+        return msg.reply('Último item adicionado foi removido!');
+      }
+    }
+    return msg.reply('Não foi possível desfazer a última ação.');
+  }
 
   const diaData = getDia();
 

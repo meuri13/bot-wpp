@@ -1,17 +1,7 @@
-- Edição em bulk
-- Reconhecer listas de pacientes na mesma msg
-- Colocar as mesmas clínicas juntas
-- Enviar resumos no grupo da equipe com comando
+- Edição em bulk (!)
+- Colocar as mesmas clínicas juntas (!)
+- Enviar resumos no grupo da equipe com comando (!)
+- /undo não funciona (!)
 - Consertar o debug
-- Na vdd clínica sem acento, adicionar clínica - não sei se já arrumou???
-- Edit não reconhece os atalhos? - acho que já arrumou 
 - Diferentes ações nos planos (cancelar, lançar etc)
-- /undo
-- Editar não funcionando direito?
-
-/edit p 1 clínica eco
-editado:
-*de:* ver se ecoa lançou princesa no doglife
-*para:* clínica eco
 - Amostras no a fazer e pq
-- Se n tiver pd deixar planos sem titulo tb
