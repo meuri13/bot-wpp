@@ -5,10 +5,7 @@
 - Consertar o debug
 - Na vdd clínica sem acento, adicionar clínica - não sei se já arrumou???
 - Edit não reconhece os atalhos? - acho que já arrumou 
-- Sigla pra renata torres
 - Diferentes ações nos planos (cancelar, lançar etc)
-- Xodo
-- Adc doglife
 - /undo
 - Editar não funcionando direito?
 

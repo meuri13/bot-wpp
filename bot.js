@@ -130,7 +130,7 @@ client.on('authenticated', () => {
 });
 
 client.on('loading_screen', (percent, message) => {
-  console.log(`⏳ [4.5/5] Carregando WhatsApp Web: ${percent}% - ${message}`);
+  console.log(`⏳ [4.5/5] Carregando WhatsApp Web: \({percent}% -\){message}`);
 });
 
 // ===== READY =====
@@ -167,133 +167,95 @@ client.on('disconnected', (reason) => {
 
 // ===== BOT =====
 client.on('message_create', async msg => {
-  //if (!msg.fromMe) return;
-
   const text = msg.body.toLowerCase().trim();
 
-  // >>> NOVO: filtro pra só comandos
-  const comandoValido = /^(\/p|\/pd|\/b|\/z|\/t|\/l|\/a|\/r|\/\?|\/\p?|\/del|\/debug|\/bs|\/edit|\/status|\/limpar|\/n)/;
+  // filtro pra só comandos
+  const comandoValido = /^(\/p|\/pd|\/b|\/z|\/t|\/l|\/a|\/r|\/\?|\/p\?|\/del|\/debug|\/bs|\/edit|\/status|\/limpar|\/n)/;
   if (!comandoValido.test(text)) return;
 
   const diaData = getDia();
 
   // ===== REGISTRAR NOTA =====
-if (text.startsWith('/n ')) {
-  const nota = msg.body.slice(3).trim();
+  if (text.startsWith('/n ')) {
+    const nota = msg.body.slice(3).trim();
 
-  if (nota) {
-    salvarNota(capitalizar(nota));
-    await reagir(client, msg, '📝'); // Reage com ✅ para confirmar o recebimento
+    if (nota) {
+      salvarNota(capitalizar(nota));
+      await reagir(client, msg, '📝');
+    }
   }
-}
 
   // ===== AJUDA =====
   if (text === '/?') {
-  let resposta = `COMANDOS DISPONÍVEIS:\n\n`;
+    let resposta = `COMANDOS DISPONÍVEIS:\n\n`;
 
-  resposta += `Pendência = /pd clinica / paciente / exame (-) / (obs)\n`;
-  resposta += `Ex: /pd cvet / thor / swab\n\n`;
+    resposta += `Pendência = /pd clinica / paciente / exame (-) / (obs)\n`;
+    resposta += `Ex: /pd cvet / thor / swab\n\n`;
 
-  resposta += `Planos = /p clinica / paciente / sistema (-) / exame (-) / (obs)\n`;
-  resposta += `Ex: /p buturi / amora / plamev / hemograma\n\n`;
+    resposta += `Planos = /p clinica / paciente / sistema (-) / exame (-) / (obs)\n`;
+    resposta += `Ex: /p buturi / amora / plamev / hemograma\n\n`;
 
-  resposta += `Bruna Souza = /bs paciente / sistema (-) / exame (-) / (obs)\n`;
-  resposta += `Ex: /bs amora / plamev / hemograma\n\n`;
+    resposta += `Bruna Souza = /bs paciente / sistema (-) / exame (-) / (obs)\n`;
+    resposta += `Ex: /bs amora / plamev / hemograma\n\n`;
 
-  msg.reply(resposta);
-    }
+    msg.reply(resposta);
+  }
 
   if (text === '/p?') {
-  let resposta = `PLANOS:\n\n`;
+    let resposta = `PLANOS:\n\n`;
 
-  resposta += `Eupet = eup\n`;
-  resposta += `Pet Top = pt\n`;
-  resposta += `Plamev = pla\n`;
-  resposta += `Pet Love = plo\n`;
-  resposta += `AuHappy = ah\n\n`;
+    resposta += `Eupet = eup\n`;
+    resposta += `Pet Top = pt\n`;
+    resposta += `Plamev = pla\n`;
+    resposta += `Pet Love = plo\n`;
+    resposta += `AuHappy = ah\n\n`;
 
-  msg.reply(resposta);
-    }
+    msg.reply(resposta);
+  }
   
-// ===== STATUS =====
-if (text === '/status') {
-  const agora = new Date();
-
-  const hora = agora.toLocaleTimeString('pt-BR', {
-    hour: '2-digit',
-    minute: '2-digit'
-  });
-
-  const data = agora.toLocaleDateString('pt-BR');
-
-  msg.reply(
-`✅ WhatsApp conectado`
-  );
-}
-
-// ===== LIMPAR =====
-if (text.startsWith('/limpar')) {
-  const tipo = text.slice(8).trim();
-
-  if (!tipo) {
-    await msg.reply(
-      'Use:\n/limpar pd\n/limpar p\n/limpar bs\n/limpar tudo'
-    );
-    return;
+  // ===== STATUS =====
+  if (text === '/status') {
+    msg.reply('✅ WhatsApp conectado');
   }
 
-  const d = getDia(hoje());
+  // ===== LIMPAR =====
+  if (text.startsWith('/limpar')) {
+    const tipo = text.slice(8).trim();
 
-  switch (tipo) {
-    case 'pd':
-      d.pendencias = [];
-      break;
-
-    case 'p':
-      d.planos = [];
-      break;
-
-    case 'bs':
-      d.bruna = [];
-      break;
-
-    case 'z':
-      d.zoogene = [];
-      break;
-
-    case 't':
-      d.tecsa = [];
-      break;
-
-    case 'l':
-      d.labpet = [];
-      break;
-
-    case 'a':
-      d.adm = [];
-      break;
-
-    case 'b':
-      d.buscas = [];
-      break;
-
-    case 'tudo':
-      d.pendencias = [];
-      d.planos = [];
-      d.bruna = [];
-      d.zoogene = [];
-      d.tecsa = [];
-      d.labpet = [];
-      d.adm = [];
-      d.buscas = [];
-      break;
-
-    default:
-      await msg.reply('Categoria inválida.');
+    if (!tipo) {
+      await msg.reply(
+        'Use:\n/limpar pd\n/limpar p\n/limpar bs\n/limpar tudo'
+      );
       return;
-  }
+    }
 
-  salvar();
+    const d = getDia(hoje());
+
+    switch (tipo) {
+      case 'pd': d.pendencias = []; break;
+      case 'p': d.planos = []; break;
+      case 'bs': d.bruna = []; break;
+      case 'z': d.zoogene = []; break;
+      case 't': d.tecsa = []; break;
+      case 'l': d.labpet = []; break;
+      case 'a': d.adm = []; break;
+      case 'b': d.buscas = []; break;
+      case 'tudo':
+        d.pendencias = [];
+        d.planos = [];
+        d.bruna = [];
+        d.zoogene = [];
+        d.tecsa = [];
+        d.labpet = [];
+        d.adm = [];
+        d.buscas = [];
+        break;
+      default:
+        await msg.reply('Categoria inválida.');
+        return;
+    }
+
+    salvar();
     await reagir(client, msg, '🧹');
   }
 
@@ -313,9 +275,9 @@ if (text.startsWith('/limpar')) {
       obs
     }));
 
-  salvar();
+    salvar();
     await reagir(client, msg);
-      }
+  }
 
   // ===== PLANOS =====
   if (text.startsWith('/p ')) {
@@ -327,19 +289,19 @@ if (text.startsWith('/limpar')) {
     const frase = montarPlano(clinica, paciente, sistema, exame, obs);
 
     diaData.planos.push(criarPendencia({
-    texto: frase,
-    clinica,
-    paciente,
-    sistema,
-    exame,
-    obs
-  }));
+      texto: frase,
+      clinica,
+      paciente,
+      sistema,
+      exame,
+      obs
+    }));
 
-  salvar();
+    salvar();
     await reagir(client, msg);
-      }
+  }
 
-// ===== BRUNA SOUZA =====
+  // ===== BRUNA SOUZA =====
   if (text.startsWith('/bs ')) {
     const partes = text.slice(4).split('/');
     let [paciente, sistema, exame, obs] = partes.map(p => p?.trim());
@@ -347,7 +309,7 @@ if (text.startsWith('/limpar')) {
 
     const frase = montarBruna(paciente, sistema, exame, obs);
 
-     diaData.bruna.push(criarPendencia({
+    diaData.bruna.push(criarPendencia({
       texto: frase,
       paciente,
       sistema,
@@ -355,332 +317,305 @@ if (text.startsWith('/limpar')) {
       obs
     }));
     
-  salvar();
+    salvar();
     await reagir(client, msg);
-      }
+  }
 
   // ===== BUSCAS =====
-if (text.startsWith('/b ')) {
-  let clinica = text.slice(3).trim();
+  if (text.startsWith('/b ')) {
+    let clinica = text.slice(3).trim();
+    clinica = aplicarAtalhos(clinica);
 
-  clinica = aplicarAtalhos(clinica);
-
-  diaData.buscas.push(capitalizar(clinica));
-  salvar();
+    diaData.buscas.push(capitalizar(clinica));
+    salvar();
     await reagir(client, msg, '🏍️');
-}
+  }
 
-// ===== CADASTROS =====
-
-if (text.startsWith('/z ')) {
-  adicionarGuia(diaData.zoogene, text.slice(3));
-  salvar();
+  // ===== CADASTROS =====
+  if (text.startsWith('/z ')) {
+    adicionarGuia(diaData.zoogene, text.slice(3));
+    salvar();
     await reagir(client, msg, '📝');
-}
+  }
 
-if (text.startsWith('/t ')) {
-  adicionarGuia(diaData.tecsa, text.slice(3));
-  salvar();
-  await reagir(client, msg, '📝');
-}
+  if (text.startsWith('/t ')) {
+    adicionarGuia(diaData.tecsa, text.slice(3));
+    salvar();
+    await reagir(client, msg, '📝');
+  }
 
-if (text.startsWith('/l ')) {
-  adicionarGuia(diaData.labpet, text.slice(3));
-  salvar();
-  await reagir(client, msg, '📝');
-}
+  if (text.startsWith('/l ')) {
+    adicionarGuia(diaData.labpet, text.slice(3));
+    salvar();
+    await reagir(client, msg, '📝');
+  }
 
   // ===== ADM =====
   if (text.startsWith('/a ')) {
     diaData.adm.push(capitalizar(text.slice(3).trim()));
-  salvar();
+    salvar();
     await reagir(client, msg, '📌');
+  }
+
+// ===== EDITAR CORRIGIDO =====
+  if (text.startsWith('/edit ')) {
+    const partes = msg.body.trim().split(' ');
+    const tipo = partes[1]?.toLowerCase();
+    const index = parseInt(partes[2]) - 1;
+
+    const mapa = { p: 'planos', pd: 'pendencias', b: 'buscas', z: 'zoogene', t: 'tecsa', l: 'labpet', a: 'adm', bs: 'bruna' };
+    const lista = diaData[mapa[tipo]];
+
+    if (!lista || isNaN(index) || !lista[index]) {
+      return msg.reply('Item não encontrado ou número inválido.');
+    }
+
+    const item = lista[index];
+    const campoBruto = partes[3] ? partes[3].toLowerCase() : null;
+
+    let campoReal = null;
+    if (campoBruto === 'clinica' || campoBruto === 'clínica') campoReal = 'clinica';
+    if (campoBruto === 'paciente') campoReal = 'paciente';
+    if (campoBruto === 'sistema') campoReal = 'sistema';
+    if (campoBruto === 'exame') campoReal = 'exame';
+    if (campoBruto === 'obs' || campoBruto === 'observacao' || campoBruto === 'observação') campoReal = 'obs';
+
+    // EDIÇÃO DE CAMPO ESPECÍFICO (ex: /edit pd 1 clínica cvet)
+    if (campoReal && typeof item !== 'string') {
+      const valorBruto = partes.slice(4).join(' ');
+      
+      if (!valorBruto) {
+        return msg.reply('Informe o novo valor para o campo.');
       }
 
-// ===== EDITAR =====
-if (text.startsWith('/edit ')) {
-  const partes = text.split(' ');
+      const valorComAtalhos = aplicarAtalhos(valorBruto);
+      const antigo = item[campoReal] || '(vazio)';
 
-  const tipo = partes[1];
-  const index = parseInt(partes[2]) - 1;
+      item[campoReal] = valorComAtalhos;
 
-  if (isNaN(index)) {
-    return msg.reply('Número inválido.');
-  }
+      if (tipo === 'pd') item.texto = montarPendencia(item.clinica, item.paciente, item.exame, item.obs);
+      else if (tipo === 'p') item.texto = montarPlano(item.clinica, item.paciente, item.sistema, item.exame, item.obs);
+      else if (tipo === 'bs') item.texto = montarBruna(item.paciente, item.sistema, item.exame, item.obs);
 
-  const mapa = {
-    p: 'planos',
-    pd: 'pendencias',
-    b: 'buscas',
-    z: 'zoogene',
-    t: 'tecsa',
-    l: 'labpet',
-    a: 'adm',
-    bs: 'bruna'
-  };
+      salvar();
 
-  const lista = diaData[mapa[tipo]];
+      const respostaMsg = 'Editado (*' + campoReal + '*):\n' +
+                          'De: ' + antigo + '\n' +
+                          'Para: *' + valorComAtalhos + '*\n\n' +
+                          '*Resultado:* ' + (item.texto || '');
 
-  if (!lista || !lista[index]) {
-    return msg.reply('Item não encontrado.');
-  }
-
-  const item = lista[index];
-
-  // Helper local para processar atalhos com seguranca
-  const processarTexto = (txt) => {
-    if (typeof aplicarAtalhos === 'function') {
-      return aplicarAtalhos(txt);
-    }
-    return txt;
-  };
-
-  // ===== PRIORIDADE 1: EDIÇÃO POR CAMPO ESPECÍFICO (/edit pd 1 clinica cvet) =====
-  const camposValidos = ['clinica', 'paciente', 'sistema', 'exame', 'obs'];
-  const campoInformado = partes[3] ? partes[3].toLowerCase() : null;
-
-  if (campoInformado && camposValidos.includes(campoInformado) && typeof item !== 'string') {
-    const valorBruto = partes.slice(4).join(' ');
-    
-    if (!valorBruto) {
-      return msg.reply(`Informe o novo valor para o campo *${campoInformado}*.`);
+      return msg.reply(respostaMsg);
     }
 
-    const valorComAtalhos = processarTexto(valorBruto);
-    const antigo = item[campoInformado];
+    // EDIÇÃO DE TEXTO COMPLETO OU POR BARRAS
+    const novoTextoBruto = partes.slice(3).join(' ');
 
-    // Atualiza o campo especifico
-    item[campoInformado] = valorComAtalhos;
+    if (!novoTextoBruto) {
+      return msg.reply('Digite o novo texto ou especifique o campo para editar.');
+    }
 
-    // Recalcula a frase completa com base nas suas funcoes de montagem
-    if (tipo === 'pd' && typeof montarPendencia === 'function') {
-      item.texto = montarPendencia(item.clinica, item.paciente, item.exame, item.obs);
-    } else if (tipo === 'p' && typeof montarPlano === 'function') {
-      item.texto = montarPlano(item.clinica, item.paciente, item.sistema, item.exame, item.obs);
-    } else if (tipo === 'bs' && typeof montarBruna === 'function') {
-      item.texto = montarBruna(item.paciente, item.sistema, item.exame, item.obs);
+    const antigo = typeof item === 'string'
+      ? item
+      : (item.texto || ((item.clinica || '') + ' ' + (item.paciente || '')).trim());
+
+    const novoTextoComAtalhos = aplicarAtalhos(novoTextoBruto);
+
+    if (typeof item === 'string') {
+      lista[index] = capitalizar(novoTextoComAtalhos);
+    } else {
+      if (novoTextoComAtalhos.includes('/')) {
+        const pedacos = novoTextoComAtalhos.split('/');
+        
+        if (tipo === 'pd') {
+          item.clinica = aplicarAtalhos((pedacos[0] || '').trim());
+          item.paciente = (pedacos[1] || '').trim();
+          item.exame = aplicarAtalhos((pedacos[2] || '').trim());
+          item.obs = (pedacos[3] || '').trim();
+          item.texto = montarPendencia(item.clinica, item.paciente, item.exame, item.obs);
+        } else if (tipo === 'p') {
+          item.clinica = aplicarAtalhos((pedacos[0] || '').trim());
+          item.paciente = (pedacos[1] || '').trim();
+          item.sistema = aplicarAtalhos((pedacos[2] || '').trim());
+          item.exame = aplicarAtalhos((pedacos[3] || '').trim());
+          item.obs = (pedacos[4] || '').trim();
+          item.texto = montarPlano(item.clinica, item.paciente, item.sistema, item.exame, item.obs);
+        } else if (tipo === 'bs') {
+          item.paciente = (pedacos[0] || '').trim();
+          item.sistema = aplicarAtalhos((pedacos[1] || '').trim());
+          item.exame = aplicarAtalhos((pedacos[2] || '').trim());
+          item.obs = (pedacos[3] || '').trim();
+          item.texto = montarBruna(item.paciente, item.sistema, item.exame, item.obs);
+        }
+      } else {
+        item.texto = capitalizar(novoTextoComAtalhos);
+      }
     }
 
     salvar();
 
-    return msg.reply(
-      `Editado (*${campoInformado}*):\nDe: ${antigo || '(vazio)'}\nPara: *${valorComAtalhos}*\n\n*Resultado:* ${item.texto || ''}`
-    );
+    const textoFinal = typeof item === 'string' ? lista[index] : item.texto;
+
+    const respostaFinal = 'Editado:\n' +
+                          '*De:* ' + antigo + '\n' +
+                          '*Para:* ' + textoFinal;
+
+    return msg.reply(respostaFinal);
   }
 
-  // ===== OPÇÃO SECUNDÁRIA: TEXTO INTEIRO OU BARRAS =====
-  const novoTextoBruto = partes.slice(3).join(' ');
+  // ===== DEBUG =====
+  if (text === '/debug') {
+    const diaISO = hoje();
+    const diaBR = hojeBR();
+    const d = getDia(diaISO);
 
-  if (!novoTextoBruto) {
-    return msg.reply('Digite o novo texto ou especifique o campo para editar.');
-  }
+    let resposta = `PENDÊNCIAS ${diaBR}\n`;
 
-  const antigo = typeof item === 'string'
-    ? item
-    : (item.texto || `${item.clinica || ''} ${item.paciente || ''}`.trim());
-
-  const novoTextoComAtalhos = processarTexto(novoTextoBruto);
-
-  if (typeof item === 'string') {
-    // Listas de texto simples (buscas, adm, etc.)
-    lista[index] = typeof capitalizar === 'function' ? capitalizar(novoTextoComAtalhos) : novoTextoComAtalhos;
-  } else {
-    // Se for objeto e usar estrutura por barras (ex: /edit pd 1 cvet/thor/hemo)
-    if (novoTextoComAtalhos.includes('/')) {
-      const pedacos = novoTextoComAtalhos.split('/');
-      item.clinica = processarTexto((pedacos[0] || '').trim());
-      item.paciente = (pedacos[1] || '').trim();
-      item.exame = processarTexto((pedacos[2] || '').trim());
-      item.obs = (pedacos[3] || '').trim();
-
-      if (tipo === 'pd' && typeof montarPendencia === 'function') {
-        item.texto = montarPendencia(item.clinica, item.paciente, item.exame, item.obs);
-      } else if (tipo === 'p' && typeof montarPlano === 'function') {
-        item.texto = montarPlano(item.clinica, item.paciente, item.sistema, item.exame, item.obs);
+    function addLista(l) {
+      if (l.length > 0) {
+        l.forEach((p, i) => {
+          resposta += `\({i + 1}.\){p}\n`;
+        });
       }
+    }
+
+    addLista(d.pendencias);
+
+    function addSecao(titulo, l) {
+      if (l.length > 0) {
+        resposta += `\n${titulo}\n`;
+        addLista(l);
+      }
+    }
+
+    addSecao("PLANOS", d.planos);
+    addSecao("BRUNA SOUZA", d.bruna);
+    addSecao("ZOOGENE", d.zoogene);
+    addSecao("TECSA", d.tecsa);
+    addSecao("LABPET", d.labpet);
+    addSecao("ADM", d.adm);
+    addSecao("BUSCAS", d.buscas);
+
+    msg.reply(resposta);
+  }
+
+// ===== DELETAR CORRIGIDO =====
+  if (text.startsWith('/del ')) {
+    const partes = text.split(' ');
+    const tipo = partes[1]?.toLowerCase();
+    const index = parseInt(partes[2]) - 1;
+
+    const mapa = { p: 'planos', pd: 'pendencias', b: 'buscas', z: 'zoogene', t: 'tecsa', l: 'labpet', a: 'adm', bs: 'bruna' };
+    const lista = diaData[mapa[tipo]];
+
+    if (lista && !isNaN(index) && lista[index]) {
+      const removido = lista.splice(index, 1)[0];
+      salvar();
+
+      const textoExibicao = typeof removido === 'object' ? (removido.texto || removido.paciente) : removido;
+
+      return msg.reply(`Removido: *${textoExibicao}*`);
     } else {
-      // Texto corrido livre (ex: /edit pd 1 Ver com Cvet sobre o exame de Thor)
-      item.texto = typeof capitalizar === 'function' ? capitalizar(novoTextoComAtalhos) : novoTextoComAtalhos;
+      return msg.reply('Item não encontrado ou número inválido.');
     }
   }
 
-  salvar();
+  // ===== GERADOR DE RESUMO =====
+  function gerarResumoPorDia(diaISO, diaExibicao) {
+    const d = data[diaISO];
+    if (!d) return `Sem dados para a data ${diaExibicao}.`;
 
-  const textoFinal = typeof item === 'string' ? lista[index] : item.texto;
+    const temPendencias = d.pendencias && d.pendencias.length > 0;
+    const temPlanos = d.planos && d.planos.length > 0;
+    const temBruna = d.bruna && d.bruna.length > 0;
+    const temZoogene = d.zoogene && d.zoogene.length > 0;
+    const temTecsa = d.tecsa && d.tecsa.length > 0;
+    const temLabpet = d.labpet && d.labpet.length > 0;
+    const temAdm = d.adm && d.adm.length > 0;
+    const temBuscas = d.buscas && d.buscas.length > 0;
 
-  msg.reply(
-    `Editado:\n*De:* ${antigo}\n*Para:* ${textoFinal}`
-  );
-}
+    const temOutrasTarefas = temPendencias || temPlanos || temBruna || temZoogene || temTecsa || temLabpet || temAdm;
 
-// ===== DEBUG =====
-if (text === '/debug') {
-  const diaISO = hoje();
-  const diaBR = hojeBR();
-  const d = getDia(diaISO);
+    if (!temOutrasTarefas && !temBuscas) return `Sem dados para a data ${diaExibicao}.`;
 
-  let resposta = `PENDÊNCIAS ${diaBR}\n`;
+    let resposta = '';
 
-  function addLista(lista) {
-    if (lista.length > 0) {
-      lista.forEach((p, i) => {
-        resposta += `${i + 1}. ${p}\n`;
+    // Se só houver buscas
+    if (!temOutrasTarefas && temBuscas) {
+      resposta += `BUSCAS ${diaExibicao}\n`;
+      d.buscas.forEach(b => resposta += `- ${b}\n`);
+      return resposta.trim();
+    }
+
+    // Título Principal
+    resposta += `PENDÊNCIAS ${diaExibicao}\n`;
+
+    // 1. PENDÊNCIAS NORMAIS
+    if (temPendencias) {
+      const clinicasAgrupadas = {};
+      d.pendencias.forEach(p => {
+        const c = p.clinica || 'Geral';
+        if (!clinicasAgrupadas[c]) clinicasAgrupadas[c] = [];
+        clinicasAgrupadas[c].push(p.texto);
+      });
+
+      Object.keys(clinicasAgrupadas).forEach(c => {
+        resposta += `- ${clinicasAgrupadas[c].join(' / ')}\n`;
       });
     }
-  }
 
-  // PENDÊNCIAS
-  addLista(d.pendencias);
+    // 2. GUIAS / AMOSTRAS
+    const gZ = montarGuia(d.zoogene || [], 'Zoogene');
+    const gT = montarGuia(d.tecsa || [], 'Tecsa');
+    const gL = montarGuia(d.labpet || [], 'Labpet');
+    if (gZ) resposta += `- ${gZ}\n`;
+    if (gT) resposta += `- ${gT}\n`;
+    if (gL) resposta += `- ${gL}\n`;
 
-  function addSecao(titulo, lista) {
-    if (lista.length > 0) {
-      resposta += `\n${titulo}\n`;
-      addLista(lista);
-    }
-  }
+    // Adiciona seções secundárias (só coloca subcabeçalho se houver pendências principais)
+    const addSecao = (titulo, lista) => {
+      if (!lista || lista.length === 0) return;
 
-  addSecao("PLANOS", d.planos);
-  addSecao("BRUNA SOUZA", d.bruna);
-  addSecao("ZOOGENE", d.zoogene);
-  addSecao("TECSA", d.tecsa);
-  addSecao("LABPET", d.labpet);
-  addSecao("ADM", d.adm);
-  addSecao("BUSCAS", d.buscas);
+      if (temPendencias) {
+        resposta += `\n${titulo}\n`;
+      }
+      
+      lista.forEach(item => resposta += `- ${typeof item === 'string' ? item : item.texto}\n`);
+    };
 
-  msg.reply(resposta);
-}
+    addSecao("PLANOS", d.planos);
+    addSecao("BRUNA SOUZA", d.bruna);
+    addSecao("ADM", d.adm);
 
-// ===== DELETAR =====
-if (text.startsWith('/del ')) {
-  const partes = text.split(' ');
-  const tipo = partes[1]; // Ex: 'pd', 'p', 'b', etc.
-  const index = parseInt(partes[2]) - 1;
-
-  if (isNaN(index)) {
-    return msg.reply('Número inválido.');
-  }
-
-  const mapa = {
-    p: 'planos',
-    pd: 'pendencias',
-    b: 'buscas',
-    z: 'zoogene',
-    t: 'tecsa',
-    l: 'labpet',
-    a: 'adm',
-    bs: 'bruna'
-  };
-
-  const lista = diaData[mapa[tipo]];
-
-  if (lista && lista[index]) {
-    // [0] extrai o item do array retornado pelo splice
-    const removido = lista.splice(index, 1)[0]; 
-    salvar();
-
-    // Se for objeto (com clinica/paciente), formata o texto. Se for string simples, usa direto.
-    let textoExibicao = removido;
-    if (typeof removido === 'object' && removido !== null) {
-      const clinica = removido.clinica ? `${removido.clinica} - ` : '';
-      const paciente = removido.paciente || removido.texto || '';
-      textoExibicao = `${clinica}${paciente}`.trim();
+    if (temBuscas) {
+      resposta += `\nBUSCAS\n`;
+      d.buscas.forEach(b => resposta += `- ${b}\n`);
     }
 
-    msg.reply(`Removido: ${textoExibicao}`);
-  } else {
-    msg.reply('Item não encontrado.');
-  }
-}
-
-function textoPendencia(p) {
-  return typeof p === 'string' ? p : p.texto;
-}
-
-// ===== GERADOR DE RESUMO =====
-function gerarResumoPorDia(diaISO, diaExibicao) {
-  const d = data[diaISO];
-
-  if (!d) return `Sem dados para a data ${diaExibicao}.`;
-
-  const temPendencias = (d.pendencias && d.pendencias.length > 0);
-  const temPlanos = (d.planos && d.planos.length > 0);
-  const temBruna = (d.bruna && d.bruna.length > 0);
-  const temZoogene = (d.zoogene && d.zoogene.length > 0);
-  const temTecsa = (d.tecsa && d.tecsa.length > 0);
-  const temLabpet = (d.labpet && d.labpet.length > 0);
-  const temAdm = (d.adm && d.adm.length > 0);
-  const temBuscas = (d.buscas && d.buscas.length > 0);
-
-  const temCoisas = temPendencias || temPlanos || temBruna || temZoogene || temTecsa || temLabpet || temAdm || temBuscas;
-
-  if (!temCoisas) return `Sem dados para a data ${diaExibicao}.`;
-
-  let resposta = `PENDÊNCIAS ${diaExibicao}\n`;
-
-  // PENDÊNCIAS
-  if (temPendencias) {
-    d.pendencias.forEach(p => {
-      resposta += `- ${textoPendencia(p)}\n`;
-    });
+    return resposta.trim();
   }
 
-  // GUIAS (Agrupadas via montarGuia)
-  const guiaZoogene = montarGuia(d.zoogene || [], 'Zoogene');
-  const guiaTecsa = montarGuia(d.tecsa || [], 'Tecsa');
-  const guiaLabpet = montarGuia(d.labpet || [], 'Labpet');
+  // ===== RESUMO HOJE (/r ou /resumo) =====
+  if (text === '/r' || text === '/resumo') {
+    const diaISO = hoje();
+    const diaBR = hojeBR();
+    const resposta = gerarResumoPorDia(diaISO, diaBR);
+    return msg.reply(resposta);
+  }
 
-  if (guiaZoogene) resposta += `- ${guiaZoogene}\n`;
-  if (guiaTecsa) resposta += `- ${guiaTecsa}\n`;
-  if (guiaLabpet) resposta += `- ${guiaLabpet}\n`;
+  // ===== RESUMO POR DATA (/r DATA ou /resumo DATA) =====
+  if (text.startsWith('/r ') || text.startsWith('/resumo ')) {
+    const argumento = text.replace(/^\/(r|resumo)\s+/, '').trim();
+    const diaISO = converterParaISO(argumento);
 
-  // PLANOS / BRUNA / ADM (1 a 3 itens entram direto na lista principal, 4+ criam seção própria)
-  function addSecao(titulo, lista) {
-    if (!lista || lista.length === 0) return;
-
-    if (lista.length < 4) {
-      lista.forEach(p => resposta += `- ${textoPendencia(p)}\n`);
-    } else {
-      resposta += `\n${titulo}\n`;
-      lista.forEach(p => resposta += `- ${textoPendencia(p)}\n`);
+    let diaExibicao = argumento;
+    if (argumento.includes('/')) {
+      const partes = argumento.split('/');
+      diaExibicao = `\({partes[0].padStart(2, '0')}/\){partes[1].padStart(2, '0')}`;
     }
+
+    const resposta = gerarResumoPorDia(diaISO, diaExibicao);
+    return msg.reply(resposta);
   }
-
-  addSecao("PLANOS", d.planos);
-  addSecao("BRUNA SOUZA", d.bruna);
-  addSecao("ADM", d.adm);
-
-  // BUSCAS
-  if (temBuscas) {
-    resposta += `\nBUSCAS\n`;
-    d.buscas.forEach(p => resposta += `- ${textoPendencia(p)}\n`);
-  }
-
-  return resposta.trim();
-}
-
-// ===== RESUMO HOJE (/r ou /resumo) =====
-if (text === '/r' || text === '/resumo') {
-  const diaISO = hoje();
-  const diaBR = hojeBR();
-  const resposta = gerarResumoPorDia(diaISO, diaBR);
-  return msg.reply(resposta);
-}
-
-// ===== RESUMO POR DATA (/r DATA ou /resumo DATA) =====
-if (text.startsWith('/r ') || text.startsWith('/resumo ')) {
-  const argumento = text.replace(/^\/(r|resumo)\s+/, '').trim();
-  const diaISO = converterParaISO(argumento);
-
-  // Formata o cabeçalho de exibição para o padrão DD/MM
-  let diaExibicao = argumento;
-  if (argumento.includes('/')) {
-    const partes = argumento.split('/');
-    diaExibicao = `${partes[0].padStart(2, '0')}/${partes[1].padStart(2, '0')}`;
-  }
-
-  const resposta = gerarResumoPorDia(diaISO, diaExibicao);
-  return msg.reply(resposta);
-}
 });
 
 // ===== EVITA CRASH =====

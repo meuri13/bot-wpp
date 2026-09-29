@@ -1473,7 +1473,16 @@
         "obs": ""
       }
     ],
-    "pendencias": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Cia do animal sobre Testando",
+        "clinica": "Cia do Animal",
+        "paciente": "testando",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      }
+    ],
     "buscas": [],
     "zoogene": [],
     "tecsa": [],

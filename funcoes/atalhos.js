@@ -24,13 +24,18 @@
     "samara":"Samara Viana",
     "town": "Pet Town",
     "villa":"Villa Pet",
+    "xodo":"Meu Xodó",
 
     //PLANOS
-    "eup":"Eu Pet",
-    "pt":"Pet top",
-    "pla":"Plamev",
-    "plo":"Pet love",
     "ah":"AuHappy",
+    "ctl":"Catlife",
+    "dgl":"Doglife",
+    "eup":"Eu Pet",
+    "pla":"Plamev",
+    "plf":"Petlife",
+    "plo":"Pet love",
+    "pt":"Pet top",
+    
     
   };
 
