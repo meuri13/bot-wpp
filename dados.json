@@ -1437,5 +1437,48 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-09-28": {
+    "planos": [
+      {
+        "texto": "Ver se Ecopet aldeia lançou Mel no Eu pet",
+        "clinica": "Ecopet Aldeia",
+        "paciente": "mel",
+        "sistema": "Eu Pet",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Ecopet aldeia lançou Vick no Pet love",
+        "clinica": "Ecopet Aldeia",
+        "paciente": "vick",
+        "sistema": "Pet love",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Buturi lançou Freddy no Plamev",
+        "clinica": "buturi",
+        "paciente": "freddy",
+        "sistema": "Plamev",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Cia pet lançou Sonic no Pet top",
+        "clinica": "cia pet",
+        "paciente": "sonic",
+        "sistema": "Pet top",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
   }
 }
