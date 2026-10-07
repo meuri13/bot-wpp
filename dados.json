@@ -1556,5 +1556,37 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-10-06": {
+    "planos": [
+      {
+        "texto": "Ver se Curado lançou Hulk no Plamev",
+        "clinica": "curado",
+        "paciente": "hulk",
+        "sistema": "Plamev",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Villa pet lançou Maya no Eu pet",
+        "clinica": "Villa Pet",
+        "paciente": "maya",
+        "sistema": "Eu Pet",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [
+      "Ecopet aldeia"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Financeiro de ecopet zn",
+      "Comprar os corantes pra pesquisa de sangue oculto, fezes no à fazer"
+    ],
+    "bruna": []
   }
 }
