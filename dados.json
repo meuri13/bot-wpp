@@ -1588,5 +1588,24 @@
       "Comprar os corantes pra pesquisa de sangue oculto, fezes no à fazer"
     ],
     "bruna": []
+  },
+  "2026-10-07": {
+    "planos": [
+      {
+        "texto": "Ver se Ecopet aldeia lançou Chico no Doglife",
+        "clinica": "Ecopet Aldeia",
+        "paciente": "chico",
+        "sistema": "Doglife",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
   }
 }

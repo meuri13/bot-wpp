@@ -6,3 +6,4 @@
 - Diferentes ações nos planos (cancelar, lançar etc)
 - Amostras no a fazer e pq- Adm deveria ficar junto das outras pendências
 - Sigla curado
+- /p? doglife etc
