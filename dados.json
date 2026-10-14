@@ -1628,5 +1628,32 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-10-14": {
+    "planos": [
+      {
+        "texto": "Ver se Ecopet aldeia lançou Lumi no Doglife",
+        "clinica": "Ecopet Aldeia",
+        "paciente": "lumi",
+        "sistema": "Doglife",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Cuida filho lançou Max no Eu pet",
+        "clinica": "cuida filho",
+        "paciente": "max",
+        "sistema": "Eu Pet",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
   }
 }
