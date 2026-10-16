@@ -1655,5 +1655,50 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-10-15": {
+    "planos": [
+      {
+        "texto": "Ver se Villa pet lançou Caramelo no Pet top",
+        "clinica": "Villa Pet",
+        "paciente": "caramelo",
+        "sistema": "Pet top",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Cemevet lançou Luck no Care",
+        "clinica": "cemevet",
+        "paciente": "luck",
+        "sistema": "care",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com Antonella sobre culat de Menina",
+        "clinica": "antonella",
+        "paciente": "menina",
+        "sistema": "",
+        "exame": "culat",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": [
+      {
+        "texto": "Ver se lançou Kevin no Plamev",
+        "clinica": "",
+        "paciente": "kevin",
+        "sistema": "Plamev",
+        "exame": "",
+        "obs": ""
+      }
+    ]
   }
 }
