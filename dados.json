@@ -1700,5 +1700,70 @@
         "obs": ""
       }
     ]
+  },
+  "2026-10-16": {
+    "planos": [
+      {
+        "texto": "Ver se Villa pet lançou Anne no Pet top",
+        "clinica": "Villa Pet",
+        "paciente": "anne",
+        "sistema": "Pet top",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-10-17": {
+    "planos": [
+      {
+        "texto": "Ver se pet top autorizou os exames de anne (soro no congelador",
+        "clinica": "Villa Pet",
+        "paciente": "anne",
+        "sistema": "Pet top",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Meu xodó lançou Lucca, shelby no Eu pet",
+        "clinica": "Meu Xodó",
+        "paciente": "lucca, shelby",
+        "sistema": "Eu Pet",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se Cuida lançou Kiara no Care",
+        "clinica": "cuida",
+        "paciente": "kiara",
+        "sistema": "care",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Processar os exames de joca e baguete (trouxe exames depois do horario, amostras no a fazer)",
+        "clinica": "luana pontes",
+        "paciente": "joca,baguete",
+        "sistema": "",
+        "exame": "-",
+        "obs": "trouxe exames depois do horario, amostras no a fazer"
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Devolver amostra de amora pra diagsvet"
+    ],
+    "bruna": []
   }
 }
