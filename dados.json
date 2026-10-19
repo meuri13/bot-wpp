@@ -1765,5 +1765,41 @@
       "Devolver amostra de amora pra diagsvet"
     ],
     "bruna": []
+  },
+  "2026-10-19": {
+    "planos": [
+      {
+        "texto": "Ver se Villa pet lançou os bioquímicos de Mel no Pet top",
+        "clinica": "Villa Pet",
+        "paciente": "mel",
+        "sistema": "Pet top",
+        "exame": "bioqs",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Eletro de Zoe",
+        "clinica": "-",
+        "paciente": "Zoe",
+        "sistema": "",
+        "exame": "eletro",
+        "obs": ""
+      },
+      {
+        "texto": "Ler a citologia de esporo de Zezinho",
+        "clinica": "-",
+        "paciente": "zezinho",
+        "sistema": "",
+        "exame": "citoe",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
   }
 }
