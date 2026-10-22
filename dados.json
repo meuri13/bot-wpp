@@ -1801,5 +1801,24 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-10-20": {
+    "planos": [
+      {
+        "texto": "Ver se Pet villa lançou Luke no Doglife",
+        "clinica": "pet villa",
+        "paciente": "luke",
+        "sistema": "Doglife",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
   }
 }

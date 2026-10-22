@@ -8,3 +8,8 @@
 - Sigla curado
 - /p? doglife etc
 - Voltou a separar as coisas????????
+- Quebrado
+
+[21/10, 08:12] mari: pendências ({partes[0].padstart(2, '0')}/){partes[1].padstart(2, '0')}
+- ver se pet villa lançou luke no doglife
+[21/10, 08:12] mari: /r 20/10
