@@ -1820,5 +1820,24 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-10-26": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Parada sobre sdma de Mel",
+        "clinica": "parada",
+        "paciente": "mel",
+        "sistema": "",
+        "exame": "sdma",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
   }
 }
