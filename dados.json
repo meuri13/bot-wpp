@@ -1839,5 +1839,34 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-10-29": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver com Ecopet zn sobre a citologia de Silver (recebemos lâmina mas nenhum exame solicitado)",
+        "clinica": "Ecopet Zn",
+        "paciente": "silver",
+        "sistema": "",
+        "exame": "cito",
+        "obs": "recebemos lâmina mas nenhum exame solicitado"
+      },
+      {
+        "texto": "Ver com Friends sobre Pitu",
+        "clinica": "friends",
+        "paciente": "pitu",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Apenas 1 teste de leish na caixa"
+    ],
+    "bruna": []
   }
 }
