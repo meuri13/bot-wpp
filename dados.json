@@ -1868,5 +1868,43 @@
       "Apenas 1 teste de leish na caixa"
     ],
     "bruna": []
+  },
+  "2026-11-11": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ver sobre Bittens (gato de larissa) (ta no a fazer pra ir pra outro lab talvez)",
+        "clinica": "-",
+        "paciente": "bittens (gato de larissa)",
+        "sistema": "",
+        "exame": "-",
+        "obs": "ta no a fazer pra ir pra outro lab talvez"
+      }
+    ],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
+  },
+  "2026-11-12": {
+    "planos": [
+      {
+        "texto": "Ver se Lirios lançou o só o hemograma estava lançado no plano de Jolie no Doglife",
+        "clinica": "lirios",
+        "paciente": "jolie",
+        "sistema": "Doglife",
+        "exame": "só o hemograma estava lançado no plano",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [],
+    "bruna": []
   }
 }
