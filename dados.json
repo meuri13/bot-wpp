@@ -1920,5 +1920,36 @@
     "labpet": [],
     "adm": [],
     "bruna": []
+  },
+  "2026-11-16": {
+    "planos": [
+      {
+        "texto": "Ver se Hs lançou Pandora no Eu pet",
+        "clinica": "hs",
+        "paciente": "pandora",
+        "sistema": "Eu Pet",
+        "exame": "",
+        "obs": ""
+      },
+      {
+        "texto": "Ver se villa pet lançou bali no ptt",
+        "clinica": "Villa Pet",
+        "paciente": "bali",
+        "sistema": "ptt",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [],
+    "buscas": [
+      "Ebla"
+    ],
+    "zoogene": [],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Se hs não conseguir lançar no eupet, contagem de reticulócito de pandora vai ser particular"
+    ],
+    "bruna": []
   }
 }
