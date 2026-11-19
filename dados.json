@@ -1951,5 +1951,40 @@
       "Se hs não conseguir lançar no eupet, contagem de reticulócito de pandora vai ser particular"
     ],
     "bruna": []
+  },
+  "2026-11-18": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ler a citologia de Bolacha, Pingo, Theodoro e Ninho",
+        "clinica": "-",
+        "paciente": "bolacha,pingo, theodoro, ninho",
+        "sistema": "",
+        "exame": "cito",
+        "obs": ""
+      },
+      {
+        "texto": "Cultf de Hera",
+        "clinica": "-",
+        "paciente": "hera",
+        "sistema": "",
+        "exame": "cultf",
+        "obs": ""
+      }
+    ],
+    "buscas": [
+      "Cemevet"
+    ],
+    "zoogene": [
+      "Zoe",
+      "Hera"
+    ],
+    "tecsa": [],
+    "labpet": [],
+    "adm": [
+      "Fazer a guia de gorda pro microcult",
+      "Lembrar de esvaziar as bandejas extras também"
+    ],
+    "bruna": []
   }
 }
