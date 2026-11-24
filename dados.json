@@ -1986,5 +1986,40 @@
       "Lembrar de esvaziar as bandejas extras também"
     ],
     "bruna": []
+  },
+  "2026-11-23": {
+    "planos": [
+      {
+        "texto": "Ver se Lirios lançou Theo no Doglife",
+        "clinica": "lirios",
+        "paciente": "theo",
+        "sistema": "Doglife",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "pendencias": [
+      {
+        "texto": "Ver com Ecopet zn sobre Dora e Maria augusta",
+        "clinica": "Ecopet Zn",
+        "paciente": "dora, maria augusta",
+        "sistema": "",
+        "exame": "",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [
+      "Sansa"
+    ],
+    "tecsa": [],
+    "labpet": [
+      "Alfredo"
+    ],
+    "adm": [
+      "Creat puxando pra baixo??? passar controle",
+      "Incubar a cultura de sansa"
+    ],
+    "bruna": []
   }
 }
