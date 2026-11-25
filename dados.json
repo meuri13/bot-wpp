@@ -2021,5 +2021,31 @@
       "Incubar a cultura de sansa"
     ],
     "bruna": []
+  },
+  "2026-11-24": {
+    "planos": [],
+    "pendencias": [
+      {
+        "texto": "Ler a citologia de Liz",
+        "clinica": "-",
+        "paciente": "liz",
+        "sistema": "",
+        "exame": "cito",
+        "obs": ""
+      }
+    ],
+    "buscas": [],
+    "zoogene": [
+      "Samantha",
+      "Nicky"
+    ],
+    "tecsa": [],
+    "labpet": [
+      "Chaplin"
+    ],
+    "adm": [
+      "Imprimir mapa de bancada cedia"
+    ],
+    "bruna": []
   }
 }
